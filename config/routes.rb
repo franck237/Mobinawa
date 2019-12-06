@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'homes/index'
+  get 'home/index'
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   root to: 'countries#show'
   
