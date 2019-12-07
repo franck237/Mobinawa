@@ -1,11 +1,22 @@
-<div class="container">
+<section class="slice-lg masthead">
+<div class="container text-dark"> <!-- Pour supprimer le fond blanc enlever text-dark et le style backgroud-color :white -->
   <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-6 offset-md-3" style="background-color: white">
       <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signin mt-3" } do |f| %>
-        <h1 class="h3 mb-3 font-weight-normal text-center">🏁 Sign up 🏁</h1>
+        <h6 class="h3 mb-3 font-weight-normal text-center">Rejoindre le réseau Mobinawa</h6>
+        <p class="mb-0 text-center">Formulaire de création d'un compte administrateur</p><br>
         <%= devise_error_messages! %>
             <div class="form-group">
-              <label class="form-control-label ">First  Name *</label>
+              <label class="form-control-label ">Country *</label>
+                 <div class="input-group input-group-transparent">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-globe-africa"></i></span>
+                    </div>
+                    <%= f.collection_select :country_id, Country.all, :id, :name ,class: "form-control form-control-label"%>
+                 </div>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label ">First Name *</label>
                  <div class="input-group input-group-transparent">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -14,7 +25,7 @@
                  </div>
               </div>
             <div class="form-group">
-              <label class="form-control-label ">Last  Name *</label>
+              <label class="form-control-label ">Last Name *</label>
                  <div class="input-group input-group-transparent">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -32,16 +43,7 @@
                  </div>
             </div>
             <div class="form-group">
-              <label class="form-control-label ">Country *</label>
-                 <div class="input-group input-group-transparent">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-globe-africa"></i></span>
-                    </div>
-                    <%= f.collection_select :country_id, Country.all, :id, :name ,class: "form-control form-control-label"%>
-                 </div>
-            </div>
-            <div class="form-group">
-              <label class="form-control-label ">Company Title *</label>
+              <label class="form-control-label ">Function *</label>
                  <div class="input-group input-group-transparent">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-building"></i></span>
@@ -85,18 +87,23 @@
 
             <div class="mt-3">
               <div class="d-flex justify-content-center" id="button_create_account">
-                <%= f.submit "Sign Up", class: "btn btn-lg btn-primary btn-block mb-3 mb-sm-0" %>
+                <%= f.submit "Create your account", class: "btn btn-primary btn-block mb-3 mb-sm-0" %>
               </div>
               <br>
               <div class="d-flex justify-content-between align-items-center">
-                    <div class=" text-sm-left">
-                      <span class="small d-sm-block d-md-inline">Déjà inscrit ?</span><br>
-                        <%= render "devise/shared/links" %>
-                        <br><br><br>
-                    </div>
+                <button type="button" class="btn btn-light btn-icon">
+                  <span class="btn-inner--icon"><i class="fas fa-arrow-left"></i></span>
+                  <span class="btn-inner--text"><%= link_to "home page", root_path %></span>
+                </button>
+                <div class="col-sm-5 text-sm-right">
+                  <span class="small d-sm-block d-md-inline">Déjà inscrit ?</span><br>
+                  <%= render "devise/shared/links" %>
+                  <br><br><br>
+                </div>
               </div>
             </div>
       <% end %>
     </div>
   </div>
-</div> 
+</div>
+</section>
