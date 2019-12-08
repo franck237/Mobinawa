@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="fluid-paragraph paragraph-md">
-
+                    <div><%= flash[:alert] %></div>
                     <!-- Left aligned Mobinawa icon -->
                     <div class="icon-block icon-block--style-1-v1">
                         <div class="block-icon">
@@ -21,22 +21,32 @@
                         </div>
                     </div>
 
-                    <!-- Searcg bar -->
-                    <form action="">
-                      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                    <!-- Search bar real (Added after)
+                    <%= form_tag(search_companies_path, :method => "get", class: 'navbar-form navbar-left') do %>  
                         <div class="input-group">
-                          <input type="search" placeholder="Type your text here" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                              <%= search_field_tag :search, params[:search], placeholder: "Enter the name of the company here", class: "form-control" %>
+                              <div class="input-group-btn">
+                                <%= button_tag "", :class => 'btn btn-info fas fa-search',:name => nil%>
+                              </div>
+                        </div>
+                     <% end %>  -->
+
+                    <!-- Search bar modifié (sans boomerang) -->
+                <%= form_tag(search_companies_path, :method => "get", class: 'p-1 bg-light rounded shadow-sm mb-4', style: 'width:100%; margin: auto') do %>  <!-- En rajoutant rounded-pill apres rounded, ajoute un meilleur effet mais un petit probleme visuel (peut etre a deplacer dans le search field tag egalement) -->
+                    <div class="input-group">
+                        <div class="input-group">
+                          <%= search_field_tag :search, params[:search], placeholder: "Enter the name of the company here", class: "form-control border-0 bg-light" %>
                           <div class="input-group-append">
-                            <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                            <button type="submit" class="btn btn-link text-primary"><i class="fas fa-search"></i></button> <!--Normalement utiliser celle du haut avec boomerang -->
                           </div>
                         </div>
-                      </div>
-                    </form>
+                    </div>
+                <% end %>
                     <br>
-                </div>
             </div>
         </div>
-        <br>
+    </div>
+    <br>
 
         <!-- Boucle Index Categories -->
         <div class="row text-white">

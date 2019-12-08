@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   get 'homes/index'
-  get 'home/index'
   devise_for :admins, controllers: { sessions: 'admins/sessions', :registrations => 'admins/registrations' }
-  root to: 'countries#show'
+  root to: 'sectors#index'
   
   resources :admins do
   	resources :companies do
@@ -18,4 +17,5 @@ Rails.application.routes.draw do
 
   resources :companies
   resources :sectors
+  get '/search' => 'companies#search', :as => 'search_companies'
 end
