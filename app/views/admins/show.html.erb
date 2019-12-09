@@ -1,47 +1,40 @@
-<%= render partial: 'layouts/header_profile', locals: {page_type: 'admin'} %>
-<section class="pt-5 pt-lg-0 bg-transparent">
-    <div class="container">
-        <div class="row">
-          	<%= render partial: 'layouts/card_dashboard', locals: {page_type: 'admin'} %>
-              	<div class="col-md-8 mt-lg-5 mb-5">
-              			<div class="card">
-                        <div class="card-body">
-                            <!-- Badges -->
-                            <div class="d-lg-flex">
-                                <a class="media d-flex align-items-center mb-3 mb-lg-0">
-                                    <div class="icon icon-sm icon-shape rounded-circle icon-red">
-                                        <i class="fas fa-warehouse"></i>
-                                    </div> &nbsp; 
-                                    <div class="media-body pl-2">
-                                        <span class="h6"><%= @admin.companies.count %> société(s)</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="pt-5 mt-5 delimiter-top">
-                                <h6>
-                                    <div class="icon icon-sm icon-shape rounded-circle icon-red">
-                                        <i class="fas fa-warehouse"></i>
-                                    </div> &nbsp; société(s)
-                                </h6>
-                            		<div class="row">
-                                		<% @admin.companies.each do |company| %>
-                                		<div class="col-lg-6 mt-4">
-                                    		<div class="card bg-secondary shadow-sm border-0">
-		                                        <div class="media align-items-center p-3">
-		                                            <div class="media-body">
-		                                                <h6 class="text-sm mb-0"> <a href="<%=company_path(company)%>">
-		                                                    <%= company.name %></a>
-		                                                </h6>
-		                                            </div>
-		                                       	</div>
-		                                    </div>
-		                                </div>
-                                		<% end %>
-                            		</div>
-                            </div>
-                         </div>
-                    </div>
-              	</div>
+<div class="slice slice-lg section-rotate slice-lg masthead">
+    <section class="pt-5 pt-lg-0 bg-transparent">
+        <div class="container">
+            <div class="row">
+                <%= render partial: 'layouts/card_dashboard' %>
+            </div>
         </div>
-    </div>
-</section> 
+    </section>
+    <br>
+    <div style="text-align: center;">
+				<%if @admin.companies.length > 1 %>
+					<h3> 🏢  Below are your companies :  🏢</h3>
+				<%else%>
+					<h3> 🏢  Below is your company  🏢</h3>
+				<%end%>
+				<!-- List of companies in the company -->
+					<div class="row-wrapper">
+						<div class="row cols-xs-space cols-sm-space cols-md-space">
+							<% @admin.companies.each do |company| %>
+								<div class="card" style="width: 92%; margin: auto;">
+								  <div class="row no-gutters">
+								    <div class="col-2 col-lg-1 align-self-center">
+								      <div class="card-img">
+								      	<span style="margin-left: 5px;"><%= link_to image_tag(company.logo, width: 75, height: 70), admin_company_path(company.id) %></span>
+								    	</div>
+								    </div>
+								    <div class="col">
+								      <div class="card-body" style="padding: 5px 25px">
+								        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold;"><%= link_to (company.name), admin_company_path(company.id) %></h5>
+								        <h6 class="card-text" style="margin-bottom: 0; color: orange"><%= company.sub_sector.name %></h6>
+								        <p class="card-text font-weight-normal c-gray"><%= company.description %></p>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+							<%end%>
+						</div>
+					</div>
+			</div>
+</div>
