@@ -8,11 +8,11 @@
 							  <div class="row no-gutters">
 							    <div class="col-2 align-self-center">
 							      <div class="card-img">
-							      	<span style="margin-left: 10px;"><%= image_tag(@company.logo, width: 80, height: 70) %></span> 
+							      	<span style="margin-left: 5px;"><%= image_tag(@company.logo, width: 80, height: 70) %></span> 
 							    	</div>   
     							</div>
     							<div class="col">
-							      <div class="card-body" style="padding: 5px 15px">
+							      <div class="card-body" style="padding: 5px 25px">
 							        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold; color: orange"><%= @company.name %></h5>
 							        <h6 class="card-text" style="margin-bottom: 0"><%= @company.sub_sector.sector.name %></h6>
 							        <p class="card-text font-weight-normal"><%= @company.sub_sector.name %></p>
@@ -23,7 +23,7 @@
 <!-- Tabs Navbar Boomerang -->
 						  <div class="tabs tabs--style-2" role="tabpanel">
 						    <!-- Nav tabs -->
-						    <ul class="nav nav-tabs" role="tablist">
+						    <ul class="nav nav-tabs" role="tablist" style="padding: 0px 10px">
 						        <li class="nav-item" role="presentation">
 						          <a href="#tabTwo-1" aria-controls="overview" role="tab" data-toggle="tab" class="nav-link active text-center text-normal strong-600">Overview</a>
         						</li>
@@ -34,7 +34,7 @@
             					<a href="#tabTwo-3" aria-controls="products" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Products</a>
         						</li>
     								<li class="nav-item" role="presentation">
-            					<a href="#tabTwo-4" aria-controls="pointofsale" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Point of Sales</a>
+            					<a href="#tabTwo-4" aria-controls="pointofsale" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Location</a>
         						</li>
     						</ul>
 <!-- Tab panes -->
@@ -66,7 +66,7 @@
                                         	</div>
                                         </div>
                                         <div class="block-content d-md-block">
-                                          <h3 class="heading heading-sm strong-300 c-blue text-uppercase" style="margin-top: 10px;">Site Web</h3>
+                                          <h3 class="heading heading-sm strong-300 c-blue text-uppercase" style="margin-top: 10px;">Web</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
 	                   		Information complémentaires :
 	                			</p>
 	                			<p style="margin-bottom: 0rem">
-	                   			<i class="fas fa-globe"></i> : <%= @company.email %>
+	                   			<i class="fas fa-envelope"></i> : <%= @company.email %>
 	                			</p>
 	                			<p>
 	                   			<i class="fas fa-phone-alt"></i> : <%= @company.number %>
