@@ -33,7 +33,7 @@ class AdminsController < ApplicationController
   def update
     respond_to
       if @admin.update(admin_params)
-         redirect_to @admin, notice: 'Admin was successfully updated.'
+         redirect_to @admin_path, notice: 'Admin was successfully updated.'
       else
         render 'edit'
       end
@@ -48,7 +48,7 @@ class AdminsController < ApplicationController
 
   def configure_devise_parameters
     devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:firstname, :lastname, :email, :number,:function, :country_id, :password, :password_confirmation)}
-    devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:firstname, :lastname, :email, :number,:function, :country_id, :password, :password_confirmation, :current_password)}
+    devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:photo_admin, :firstname, :lastname, :email, :number,:function, :country_id, :password, :password_confirmation, :current_password)}
   end
 
   def set_locale
@@ -62,7 +62,7 @@ class AdminsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def admin_params
-    params.require(:admin).permit(:firstname, :lastname, :number, :function, :email, :encrypted_password, :country_id )
+    params.require(:admin).permit(:firstname, :lastname, :number, :function, :email, :encrypted_password, :country_id, :photo_admin )
   end
 
   #An admin can not acces the dashboard of another admin
