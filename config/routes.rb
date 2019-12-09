@@ -5,18 +5,25 @@ Rails.application.routes.draw do
   
   resources :admins do
   	get '/dashboard', to: 'admins#dashboard', as: 'dashboard'
-  	resources :companies do
-  		resources :products
-  	end
   end
   
-    resources :sectors do
-      resources :companies do
-        resources :products
-        end
-      end
+  resources :countries do
+  	resources :sectors, :sub_sectors, :admins, :companies, :products
+  end
 
-  resources :companies
-  resources :sectors
+  resources :sectors do
+    resources :sub_sectors, :admins, :companies, :products
+  end
+
+  resources :sub_sectors do
+  	resources :admins, :companies, :products
+ 	end
+
+ 	resources :companies do
+ 		resources :products
+ 	end
+
+ 	resources :products
+  
   get '/search' => 'companies#search', :as => 'search_companies'
 end

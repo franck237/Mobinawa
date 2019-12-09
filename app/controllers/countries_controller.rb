@@ -1,5 +1,15 @@
 class CountriesController < ApplicationController
+
+  def index
+    @countries = Country.all
+  end
+
+  def show
+    @country = Country.find(params[:id])
+  end
+
   def new
+    @country = Country.new
   end
 
   def create
@@ -12,11 +22,5 @@ class CountriesController < ApplicationController
   end
 
   def destroy
-  end
-
-  def index
-  end
-
-  def show
   end
 end

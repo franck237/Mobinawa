@@ -22,6 +22,7 @@ class Product < ApplicationRecord
 	validates :status, inclusion: { in: [ true, false ] }
 
 
-	#Associations: One company belong to one Admin, une sub_sector and one country
+	#Associations: One product belong to one Company
   belongs_to :company
+  delegate :admin, to: :company
 end
