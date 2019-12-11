@@ -9,7 +9,8 @@
             <h5> 🎭 Your actual Photo 🎭</h5>
             <%if @admin.photo_admin.attached?%>
             <div style="text-align: center">
-              <%= image_tag @admin.photo_admin, alt: 'photo_admin', class: "card-profile-image avatar shadow", width: 200, heigth: 200 %>
+            <!-- See thumbnail method in the admin model -->
+              <%= image_tag @admin.thumbnail, alt: 'photo_admin', class: "card-profile-image avatar shadow" %>
             </div>
             <%else%>
               <a>

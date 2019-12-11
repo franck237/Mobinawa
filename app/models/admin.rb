@@ -13,6 +13,8 @@ class Admin < ApplicationRecord
   has_many :products, through: :companies
   has_one_attached :photo_admin
 
+  accepts_nested_attributes_for :companies, :products
+
   #Useful in order to send an email to an admin after creating an account
   after_create :welcome_send
 
@@ -22,5 +24,9 @@ class Admin < ApplicationRecord
 
   def welcome_send
     AdminMailer.welcome_email(self).deliver_now
+  end
+
+  def thumbnail
+    return self.photo_admin.variant(resize: '200x200').processed
   end
 end

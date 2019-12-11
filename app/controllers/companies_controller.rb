@@ -1,18 +1,21 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :only_your_profile_page, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @companies = Company.all.order(:name)
   end
 
   def show
-    @company = Company.find(params[:id])
   end
 
   def new
-    @company = Company.new 
+    @company = Company.new
   end
 
   def create
-    @company = Company.new(number: params[:number], name: params[:name], email: params[:email], website: params[:website], logo: params[:logo], description: params[:description], sub_sector_id: params[:sub_sector_id], admin_id: params[:admin_id], country_id: params[:country_id])
+    @company = Company.new(company_params)
       if @company.save
         redirect_to company_path(@Company.id)
       else
@@ -24,6 +27,12 @@ class CompaniesController < ApplicationController
   end
 
   def update
+    respond_to
+      if @company.update(company_params)
+         redirect_to @company_path, notice: 'Company was successfully updated.'
+      else
+        render 'edit'
+      end
   end
 
   def destroy
@@ -39,6 +48,27 @@ class CompaniesController < ApplicationController
     else
       @parameter = params[:search].downcase  
       @results = Company.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")  
+    end
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_company
+    @company = Company.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def company_params
+    params.require(:company).permit(:number, :name, :email, :website, :logo, :description, :sub_sector_id, :admin_id, :country_id)
+  end
+
+   #An admin can not acces the dashboard of another admin
+  def only_your_profile_page
+    @admin = Admin.find(params[:admin_id])
+
+    if current_admin != @admin
+      redirect_to sectors_path, notice: "Access denied! You can only view your own profile page."
     end
   end
 end

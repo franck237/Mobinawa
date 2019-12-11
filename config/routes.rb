@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   
   resources :admins do
   	get '/dashboard', to: 'admins#dashboard', as: 'dashboard'
+  	resources :companies do
+  		resources :products
+  	end
   end
   
   resources :countries do
@@ -19,11 +22,11 @@ Rails.application.routes.draw do
   	resources :admins, :companies, :products
  	end
 
- 	resources :companies do
- 		resources :products
+ 	resources :companies, only: [:show, :index] do
+ 		resources :products, only: [:show, :index]
  	end
 
- 	resources :products
+ 	resources :products, only: [:show, :index]
   
   get '/search' => 'companies#search', :as => 'search_companies'
 end
