@@ -21,8 +21,11 @@ class Product < ApplicationRecord
 	#Status validation: it is mendatory to have a status for a Product
 	validates :status, inclusion: { in: [ true, false ] }
 
-
 	#Associations: One product belong to one Company
   belongs_to :company
+
+  #Delegations: One product can retrieve admin, country & sub_sectors refering to company (now we can do product.admin.firstname for example)
   delegate :admin, to: :company
+  delegate :country, to: :company
+  delegate :sub_sectors, to: :company
 end
