@@ -10,9 +10,9 @@
                 <label class="form-control-label ">Photo</label>
                    <div class="input-group input-group-transparent">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <span class="input-group-text"><i class="fas fa-camera"></i></span>
                       </div>
-                      <%= f.text_field :firstname, class: "form-control form-control-label", autofocus: true,  placeholder: "Jack" %>
+                      <%= f.file_field :photo_admin, class: "form-control form-control-label" %>
                    </div>
         </div>
         <div class="form-group">

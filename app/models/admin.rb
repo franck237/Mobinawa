@@ -11,6 +11,7 @@ class Admin < ApplicationRecord
   belongs_to :country
   has_many :companies
   has_many :products, through: :companies
+  has_one_attached :photo_admin
 
   #Useful in order to send an email to an admin after creating an account
   after_create :welcome_send
