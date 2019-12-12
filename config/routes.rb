@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   	resources :admins, :companies, :products
  	end
 
- 	resources :companies, only: [:show, :index] do
+ 	resources :companies, only: [:show, :index, :create] do
  		resources :products, only: [:show, :index]
  	end
 

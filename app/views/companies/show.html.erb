@@ -8,13 +8,17 @@
 							  <div class="row no-gutters">
 							    <div class="col-2 align-self-center">
 							      <div class="card-img">
-							      	<span style="margin-left: 5px;"><%= image_tag(@company.logo, width: 80, height: 70) %></span> 
+							      	<%if @company.upload_logo.attached?%>
+												  <span style="margin-left: 5px;"><%= image_tag(@company.upload_logo, width: 80, height: 70) %></span>
+											<%else%>
+							      			<span style="margin-left: 5px;"><%= image_tag(@company.logo, width: 80, height: 70) %></span>
+							      	<%end%>
 							    	</div>   
     							</div>
     							<div class="col">
 							      <div class="card-body" style="padding: 5px 25px">
 							        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold; color: orange"><%= @company.name %></h5>
-							        <h6 class="card-text" style="margin-bottom: 0"><%= @company.sub_sector.sector.name %></h6>
+							        <h6 class="card-text" style="margin-bottom: 0"><%= @company.sector.name %></h6>
 							        <p class="card-text font-weight-normal"><%= @company.sub_sector.name %></p>
 							      </div>
 							    </div>
@@ -111,7 +115,11 @@
                     		Logo :
                 			</p>
                 			<p>
-                   			<%= image_tag(@company.logo, width: 60, height: 60) %>
+                				<%if @company.upload_logo.attached?%>
+														<%= image_tag(@company.upload_logo, width: 60, height: 60) %>
+												<%else%>
+								      			<%= image_tag(@company.logo, width: 60, height: 60) %>
+								      	<%end%>
                 			</p>
             				</div>
         					</div>

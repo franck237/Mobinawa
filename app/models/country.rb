@@ -23,4 +23,6 @@ class Country < ApplicationRecord
 	#Associations: One user have many Admin and many companies
 	has_many :admins
 	has_many :companies
+
+	accepts_nested_attributes_for :admins, :companies
 end

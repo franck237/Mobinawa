@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :only_your_profile_page, only: [:new, :create, :edit, :update, :destroy]
+  before_action :only_your_profile_page, only: [:new, :edit, :update, :destroy]
 
   def index
     @companies = Company.all.order(:name)
@@ -15,9 +15,13 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    @admin = Admin.find(params[:admin_id])
     @company = Company.new(company_params)
+    @company.admin_id = @admin.id
+    @company.status = 0
+    @company.country_id = @admin.country_id
       if @company.save
-        redirect_to company_path(@Company.id)
+        redirect_to @admin
       else
         render 'new'
       end
@@ -60,7 +64,7 @@ class CompaniesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def company_params
-    params.require(:company).permit(:number, :name, :email, :website, :logo, :description, :sub_sector_id, :admin_id, :country_id)
+    params.require(:company).permit(:number, :name, :email, :website, :logo, :description, :sub_sector_id, :admin_id, :country_id, :upload_logo, photo_companies: [], sub_sectors_attributes: [:sector])
   end
 
    #An admin can not acces the dashboard of another admin

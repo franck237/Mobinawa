@@ -19,4 +19,11 @@ validates :status, inclusion: { in: [ 0, 1, 2 ] }
   belongs_to :admin
   belongs_to :country
   has_many :products
+
+ #Active Storage associations for multiple photo_companies
+ has_one_attached :upload_logo
+ has_many_attached :photo_companies
+
+#Delegations: One company can retrieve sectors refering to his sub_sector (now we can do company.sector.name for example)
+ delegate :sector, to: :sub_sector
 end

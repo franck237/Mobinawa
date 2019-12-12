@@ -1,2 +1,112 @@
-<h1>Companies#new</h1>
-<p>Find me in app/views/companies/new.html.erb</p>
+<div class="slice-lg masthead">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3" style="background-color: white; color: #424140">
+        <%= form_for ([@admin, @company]) do |f| %>
+        <h6 class="h3 mb-3 font-weight-normal text-center">Créez votre entreprise</h6>
+        <p class="text-muted mb-0 text-center">Formulaire de création d'une entreprise</p><br>
+        
+       	<% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@company.errors.count, "error") %> prohibited
+        this company from being saved:
+      </h2>
+      <ul>
+        <% @company.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <div class="form-group">
+            <label class="form-control-label ">Logo * :</label>
+            <div class="input-group input-group-transparent">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-camera"></i></span>
+                </div>
+                <%= f.file_field :upload_logo, class: "form-control form-control-label" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label ">Nom Commercial * :</label>
+            <div class="input-group input-group-transparent">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-building"></i></span>
+                </div>
+                <%= f.text_field :name, class: "form-control form-control-label", autofocus: true,  placeholder: "Nom Commercial" %>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label ">Domaine d'Activités * :</label>
+            <div class="input-group input-group-transparent">
+                <div class="input-group-prepend">
+                		<span class="input-group-text"><i class="far fa-building"></i></span>
+                </div>
+                <%= f.collection_select :sub_sector_id, SubSector.all, :id, :name ,class: "form-control form-control-label"%>
+            </div>
+        </div>
+
+              <div class="form-group">
+                <label class="form-control-label ">Description * :</label>
+                   <div class="input-group input-group-transparent">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-comment-dots"></i></span>
+                      </div>
+                      <%= f.text_field :description, class: "form-control form-control-label", autofocus: true,  placeholder: "Description de votre entreprise..." %>
+                   </div>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Numéro de téléphone de l'entreprise* :</label>
+                   <div class="input-group input-group-transparent">
+                      <div class="input-group-prepend">
+                         <span class="input-group-text"><i class="fas fa-mobile"></i></span>
+                      </div>
+                        <%= f.telephone_field :number, class: "form-control form-control-label", autofocus: true, type: "tel", placeholder: "01 16 88 12 16 " %>
+                   </div>
+              </div>
+
+              <p class="text-center"><---------- Renseignement non obligatoire ----------></p>
+
+              <div class="form-group">
+			            <label class="form-control-label ">Photos supplémentaires :</label>
+			            <div class="input-group input-group-transparent">
+			                <div class="input-group-prepend">
+			                    <span class="input-group-text"><i class="fas fa-camera"></i></span>
+			                </div>
+			                <%= f.file_field :photo_companies, multiple: true, class: "form-control form-control-label" %>
+			            </div>
+			        </div>
+
+              <div class="form-group">
+                <label class="form-control-label ">Site Web :</label>
+                   <div class="input-group input-group-transparent">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-building"></i></span>
+                      </div>
+                      <%= f.url_field :website, class: "form-control form-control-label", autofocus: true, placeholder: "www.votresite.com" %>
+                   </div>
+              </div>
+              <span class="clearfix"></span>
+               <div class="form-group">
+                 <label class="form-control-label">Email de contact :</label>
+                     <div class="input-group input-group-transparent">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"><i class="fas fa-paper-plane"></i></span>
+                        </div>
+                       <%= f.email_field :email, class: "form-control form-control-label", autofocus: true, autocomplete: "email", placeholder: "contact@votresite.com" %>
+                     </div>
+               </div>
+              <div class="form-group">
+              <div class="actions mt-5">
+                  <%= f.submit "Créer mon Entreprise", class: "btn btn-lg btn-primary btn-block"  %>
+              </div>
+              </div>
+          <% end -%>
+				</div>
+      </div>
+    </div>
+  </div>
