@@ -16,7 +16,7 @@ class Admin < ApplicationRecord
   accepts_nested_attributes_for :companies, :products
 
   #Useful in order to send an email to an admin after creating an account
-  #after_create :welcome_send
+  after_create :welcome_send
 
   def fullname
   	firstname.capitalize + " " + lastname.upcase
