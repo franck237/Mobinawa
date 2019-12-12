@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   before_action :only_your_profile_page, only: [:new, :edit, :update, :destroy]
 
   def index
-    @companies = Company.all.order(:name)
+    @companies = Company.all
   end
 
   def show
@@ -21,19 +21,20 @@ class CompaniesController < ApplicationController
     @company.status = 0
     @company.country_id = @admin.country_id
       if @company.save
-        redirect_to @admin
+        redirect_to @admin, notice: 'Your Company was successfully created.'
       else
         render 'new'
       end
   end
 
   def edit
+    @admin = Admin.find(params[:admin_id])
   end
 
   def update
-    respond_to
+    #respond_to
       if @company.update(company_params)
-         redirect_to @company_path, notice: 'Company was successfully updated.'
+         redirect_to admin_company_path, notice: 'Company was successfully updated.'
       else
         render 'edit'
       end
