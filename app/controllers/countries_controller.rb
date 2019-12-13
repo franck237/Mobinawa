@@ -5,7 +5,9 @@ class CountriesController < ApplicationController
   end
 
   def show
+    @countries = Country.all
     @country = Country.find(params[:id])
+    @sectors = Sector.all
   end
 
   def new

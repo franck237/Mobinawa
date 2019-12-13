@@ -1,2 +1,84 @@
-<h1>Countries#show</h1>
-<p>Find me in app/views/countries/show.html.erb</p>
+<section class="slice-lg masthead">
+    <!-- Mask overlay -->
+
+
+    <!-- Container -->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12" style="margin: 0">
+                <div class="fluid-paragraph paragraph-md">
+
+                	<p><span>Welcome on Mobinawa </span>
+                			<!-- Default dropright button -->
+											<div class="btn-group dropright">
+											  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											    <%= image_pack_tag @country.flag, width: 30 %><span> </span><%= @country.name %>
+											  </button>
+											  <div class="dropdown-menu">
+											    <!-- Dropdown menu links -->
+											    <% @countries.each.with_index(1) do |c| %>
+											    <div class="dropdown-item">
+											    	<%= link_to image_pack_tag(c.flag, width: 25), country_path(c.id) %><span> </span><%= link_to (c.name), country_path(c.id), style: 'color:blue' %>
+											    </div>
+											    
+											    <% end %>
+											  </div>
+											</div>
+                	</p>
+
+                    <div><%= flash[:alert] %></div>
+                    <!-- Left aligned Mobinawa icon -->
+                    <div class="icon-block icon-block--style-1-v1">
+                        <div class="block-icon align-self-center" style="padding: 5px 0px 0px 2px">
+                            <%= image_pack_tag "logo/mobinawa_small.png", alt: "My Logo", width: 75, height: 75 %>
+                        </div>
+                        <div class="block-content" style="text-align: left; margin-left: 15px">
+                             <h2 class="heading heading-1 strong-400 text-white" style="margin-bottom: 0">
+                                Hello,
+                            </h2>
+                            <h3 class="heading heading-3 strong-400 text-white">What are you searching for ?</h3>
+                        </div>
+                    </div>
+
+                    <!-- Search bar real (Added after)
+                    <%= form_tag(search_companies_path, :method => "get", class: 'navbar-form navbar-left') do %>  
+                        <div class="input-group">
+                              <%= search_field_tag :search, params[:search], placeholder: "Enter the name of the company here", class: "form-control" %>
+                              <div class="input-group-btn">
+                                <%= button_tag "", :class => 'btn btn-info fas fa-search',:name => nil%>
+                              </div>
+                        </div>
+                     <% end %>  -->
+
+                    <!-- Search bar modifié (sans boomerang) -->
+                <%= form_tag(search_companies_path, :method => "get", class: 'p-1 bg-light rounded shadow-sm mb-4', style: 'width:100%; margin: auto') do %>  <!-- En rajoutant rounded-pill apres rounded, ajoute un meilleur effet mais un petit probleme visuel (peut etre a deplacer dans le search field tag egalement) -->
+                    <div class="input-group">
+                        <div class="input-group">
+                          <%= search_field_tag :search, params[:search], placeholder: "Enter the name of the company here", class: "form-control border-0 bg-light" %>
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-link text-primary"><i class="fas fa-search"></i></button> <!--Normalement utiliser celle du haut avec boomerang -->
+                          </div>
+                        </div>
+                    </div>
+                <% end %>
+                    <br>
+            </div>
+        </div>
+    </div>
+    <br>
+
+        <!-- Boucle Index Categories -->
+        <div class="row text-white">
+            <% @sectors.each.with_index(1) do |sector| %>
+            <div class="col-6 col-lg-4 text-white" style="margin-bottom: 2rem; padding: 0">
+                    <div class="block-icon text-white">
+                        <%= link_to image_pack_tag(sector.icon, width: 60, height: 60), country_sector_path(sector.id) %>
+                    </div>
+                    <div class="block-content">
+                        <h3 class="heading heading-6 strong-600"><%= link_to (sector.name), country_sector_path(sector.id), class: "text-white" %></h3>
+                    </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</section> 
