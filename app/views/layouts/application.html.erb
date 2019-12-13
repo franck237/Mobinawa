@@ -22,7 +22,7 @@
                     <nav class="navbar navbar-expand-lg navbar--bold navbar--style-2 navbar-light bg-default  navbar--bb-1px">
                       <div class="container navbar-container">
                         <!-- Brand/Logo -->
-                        <%= link_to image_pack_tag("logo/mobinawa.png", width: 100), sectors_path, class: "navbar-brand" %>
+                        <%= link_to image_pack_tag("logo/mobinawa.png", width: 100), country_sectors_path(:country_id => Country.first.id), class: "navbar-brand" %>
 
                         <div class="d-inline-block">
                           <!-- Navbar toggler  -->
