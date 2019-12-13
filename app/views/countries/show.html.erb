@@ -66,19 +66,20 @@
         </div>
     </div>
     <br>
-
+    		
         <!-- Boucle Index Categories -->
         <div class="row text-white">
             <% @sectors.each.with_index(1) do |sector| %>
             <div class="col-6 col-lg-4 text-white" style="margin-bottom: 2rem; padding: 0">
                     <div class="block-icon text-white">
-                        <%= link_to image_pack_tag(sector.icon, width: 60, height: 60), country_sector_path(sector.id) %>
+                        <%= link_to image_pack_tag(sector.icon, width: 60, height: 60), country_sector_path(@country, sector) %>
                     </div>
                     <div class="block-content">
-                        <h3 class="heading heading-6 strong-600"><%= link_to (sector.name), country_sector_path(sector.id), class: "text-white" %></h3>
+                        <h3 class="heading heading-6 strong-600"><%= link_to (sector.name), country_sector_path(@country, sector), class: "text-white" %></h3>
                     </div>
             </div>
             <% end %>
         </div>
+        
     </div>
 </section> 

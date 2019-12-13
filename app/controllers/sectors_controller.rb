@@ -1,11 +1,14 @@
 class SectorsController < ApplicationController
   def index
     @sectors = Sector.all 
+    @countries = Country.all
+    @country = Country.find(params[:country_id])
   end
 
   def show
+    @country = Country.find(params[:country_id])
     @sector = Sector.find(params[:id])
-    @companies = @sector.companies.order(:name)
+    @companies = @sector.companies.where(country_id: @country.id).order(:name)
   end
 
   def new

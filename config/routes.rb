@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'homes/index'
   devise_for :admins, controllers: { sessions: 'admins/sessions', :registrations => 'admins/registrations' }
-  root to: 'sectors#index'
+  root :to => "countries#show", :id => '1'
   
   resources :admins do
   	get '/dashboard', to: 'admins#dashboard', as: 'dashboard'
