@@ -3,27 +3,63 @@
     <div id="st-container" class="st-container">
         <div class="st-pusher">
             <div class="st-content">
-<!-- Section of the company -->
-							<div class="card" style="max-width: 540px; border-style: none">
-							  <div class="row no-gutters">
-							    <div class="col-2 align-self-center">
-							      <div class="card-img">
-							      	<%if @company.upload_logo.attached?%>
-												  <span style="margin-left: 5px;"><%= image_tag(@company.upload_logo, width: 80, height: 70) %></span>
-											<%else%>
-							      			<span style="margin-left: 5px;"><%= image_tag(@company.logo, width: 80, height: 70) %></span>
-							      	<%end%>
-							    	</div>   
-    							</div>
-    							<div class="col">
-							      <div class="card-body" style="padding: 5px 25px">
-							        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold; color: orange"><%= @company.name %></h5>
-							        <h6 class="card-text" style="margin-bottom: 0"><%= @company.sector.name %></h6>
-							        <p class="card-text font-weight-normal"><%= @company.sub_sector.name %></p>
-							      </div>
+<!-- Section of the carousel -->
+							<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+							  <div class="carousel-inner">
+							    <div class="carousel-item active">
+							    	<%if @company.upload_logo.attached?%>
+							      	<%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
+							      <%else%>
+							      	<%= image_tag(@company.logo, class: 'd-block w-100') %>
+							      <%end%>
+							    </div>
+							    <div class="carousel-item">
+							      <%if @company.upload_logo.attached?%>
+							      	<%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
+							      <%else%>
+							      	<%= image_tag(@company.logo, class: 'd-block w-100') %>
+							      <%end%>
+							    </div>
+							    <div class="carousel-item">
+							      <%if @company.upload_logo.attached?%>
+							      	<%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
+							      <%else%>
+							      	<%= image_tag(@company.logo, class: 'd-block w-100') %>
+							      <%end%>
 							    </div>
 							  </div>
+							  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Previous</span>
+							  </a>
+							  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							    <span class="sr-only">Next</span>
+							  </a>
 							</div>
+<!-- Section of the company -->
+							<div class="container-fluid">
+							  <div class="row no-gutters">
+
+							  	<div class="col-auto mr-auto">
+							 
+							        <h5  style="margin-bottom: 0; font-weight: bold; color: orange"><%= @company.name %></h5>
+							        <h6 class="card-text" style="margin-bottom: 0"><%= @company.sector.name %></h6>
+							        <p class="card-text font-weight-normal"><%= @company.sub_sector.name %></p>
+							     
+							    </div>
+							    <div class="col-auto">
+							      
+							      	<%if @company.upload_logo.attached?%>
+												  <span><%= image_tag(@company.upload_logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %></span>
+											<%else%>
+							      			<span><%= image_tag(@company.logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %></span>
+							      	<%end%>
+							    	  
+    							</div>
+    							 </div>
+							  </div>
+						
 <!-- Tabs Navbar Boomerang -->
 						  <div class="tabs tabs--style-2" role="tabpanel">
 						    <!-- Nav tabs -->
@@ -42,55 +78,32 @@
         						</li>
     						</ul>
 <!-- Tab panes -->
+
 						    <div class="tab-content">
 						      <div role="tabpanel" class="tab-pane active" id="tabTwo-1">
 						        <div class="tab-body" style="padding: 0px 15px">
-<!-- Icons Call, Chat, Sites Webs, Services -->
-                    	<section class="slice-xs border-bottom" style="padding: 0px">
-                        <div class="container container-sm">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="icon-block icon-block--style-1-v5 text-center active">
-                                        <div class="block-icon mb-0">
-                                          <div style="font-size: 1.5rem;">
-                                      <!--     	<i class="fas fa-phone-alt" style="border: 2px solid blue; padding: 10px; border-radius: 10px"></i> -->
-                                        	</div>
-                                       	</div>
-                                        <div class="block-content d-md-block">
-                                            <h3 class="heading heading-sm strong-300 c-blue text-uppercase" style="margin-top: 10px;">Call</h3>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col-3">
-                                    <div class="icon-block icon-block--style-1-v5 text-center active">
-                                        <div class="block-icon mb-0">
-                                        	<div style="font-size: 1.5rem;">
-                                      <!--       <i class="fas fa-comments" style="border: 2px solid blue; padding: 10px; border-radius: 10px"></i>  -->
-                                        	</div>
-                                        </div>
-                                        <div class="block-content d-md-block">
-                                          <h3 class="heading heading-sm strong-300 c-blue text-uppercase" style="margin-top: 10px;">Web</h3>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel panel-default">
+	                        <div class="panel-body text-center">
+	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-phone-alt"></i>
+	                            	<h6 style="margin-top: 8px">Call</h6>
+	                            </button>
+	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-comments"></i>
+	                            	<h6 style="margin-top: 8px">Chat</h6>
+	                            </button>
+	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-list"></i>
+	                            	<h6 style="margin-top: 8px">Services</h6>
+	                            </button>
+	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-directions"></i>
+	                            	<h6 style="margin-top: 8px">GPS</h6>
+	                            </button>
+	                          </div>
+	                        </div>
+	                        <hr>
 
-                                <div class="col-3">
-                                  <div class="icon-block icon-block--style-1-v5 text-center active">
-                                    <div class="block-icon mb-0">
-                                      <div style="font-size: 1.5rem;">
-                                      <!--   <i class="fas fa-directions" style="border: 2px solid blue; padding: 10px; border-radius: 10px"></i>  -->
-                                      </div>
-                                    </div>
-                                    <div class="block-content d-md-block">
-                                      <h3 class="heading heading-sm strong-300 c-blue text-uppercase" style="margin-top: 10px;">Services</h3>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                    	</section>
-                    	<div style="padding: 10px 0px; font-size: 0.5rem;">
+
+                    	<div style="padding: 10px 0px">
 	                    	<p style="margin-bottom: 0rem; text-decoration: underline; text-decoration-color: orange; font-weight: bold">
 	                   		Description :
 	                			</p>
@@ -111,9 +124,71 @@
         					</div>
         					<div role="tabpanel" class="tab-pane" id="tabTwo-2">
             				<div class="tab-body" style="padding: 0px 15px">
-                			<p>
-                    		Logo :
-                			</p>
+                			<div class="row">
+											  <div class="col-md-12">
+
+											    <div id="mdb-lightbox-ui"></div>
+
+											    <div class="mdb-lightbox">
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(145).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(145).jpg" class="img-fluid">
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(150).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(152).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(152).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(42).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(42).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(151).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(151).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(148).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(148).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(147).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											      <figure class="col-md-4">
+											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(149).jpg" data-size="1600x1067">
+											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(149).jpg" class="img-fluid" />
+											        </a>
+											      </figure>
+
+											    </div>
+
+											  </div>
+											</div>
                 			<p>
                 				<%if @company.upload_logo.attached?%>
 														<%= image_tag(@company.upload_logo, width: 60, height: 60) %>
@@ -145,121 +220,3 @@
         					</div>
     						</div>
 							</div>
-<!-- FOOTER -->
-              <footer id="footer" class="footer">
-					    <div class="footer-top">
-					        <div class="container">
-					            <div class="row cols-xs-space cols-sm-space cols-md-space">
-					                <div class="col-lg-5">
-					                    <div class="col">
-					                        <img src="../../assets/images/logo/logo-1-c.png">
-					                        <span class="clearfix"></span>
-					                        <span class="heading heading-sm c-gray-light strong-400">One template. Infinite solutions.</span>
-					                        <p class="mt-3">
-					                            All the components included in Boomerang are built to the same level of quality as Bootstrap and highlighted with several example pages.
-					                        </p>
-
-					                        <div class="copyright mt-4">
-					                            <p>
-					                                Copyright &copy; 2018                                <a href="https://webpixels.io" target="_blank">
-					                                    <strong>Webpixels</strong>
-					                                </a> -
-					                                All rights reserved
-					                            </p>
-					                        </div>
-					                    </div>
-					                </div>
-
-					                <div class="col-lg-2">
-					                    <div class="col">
-					                       <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
-					                           Support
-					                       </h4>
-
-					                       <ul class="footer-links">
-					                            <li><a href="#" title="Help center">Help center</a></li>
-					                            <li><a href="#" title="Discussions">Discussions</a></li>
-					                            <li><a href="#" title="Contact support">Contact</a></li>
-					                            <li><a href="#" title="Blog">Blog</a></li>
-					                            <li><a href="#" title="Jobs">FAQ</a></li>
-					                        </ul>
-					                     </div>
-					                </div>
-
-					                <div class="col-lg-2">
-					                    <div class="col">
-					                        <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
-					                            Company
-					                        </h4>
-
-					                        <ul class="footer-links">
-					                             <li>
-					                                 <a href="#" title="Home">
-					                                     Home
-					                                 </a>
-					                             </li>
-					                             <li>
-					                                 <a href="#" title="About us">
-					                                     About us
-					                                 </a>
-					                             </li>
-					                             <li>
-					                                 <a href="#" title="Services">
-					                                     Services
-					                                 </a>
-					                             </li>
-					                             <li>
-					                                 <a href="#" title="Blog">
-					                                     Blog
-					                                 </a>
-					                             </li>
-					                             <li>
-					                                 <a href="#" title="Contact">
-					                                     Contact
-					                                 </a>
-					                             </li>
-					                         </ul>
-					                    </div>
-					                </div>
-
-					                <div class="col-lg-3">
-					                    <div class="col">
-					                        <h4 class="heading heading-xs strong-600 text-uppercase mb-1">
-					                            Get in touch
-					                        </h4>
-
-					                        <ul class="social-media social-media--style-1-v4">
-					                            <li>
-					                                <a href="#" class="facebook" target="_blank" data-toggle="tooltip" data-original-title="Facebook">
-					                                    <i class="fas fa-facebook"></i>
-					                                </a>
-					                            </li>
-					                            <li>
-					                                <a href="#" class="instagram" target="_blank" data-toggle="tooltip" data-original-title="Instagram">
-					                                    <i class="fas fa-instagram"></i>
-					                                </a>
-					                            </li>
-					                            <li>
-					                                <a href="#" class="dribbble" target="_blank" data-toggle="tooltip" data-original-title="Dribbble">
-					                                    <i class="fas fa-dribbble"></i>
-					                                </a>
-					                            </li>
-					                            <li>
-					                                <a href="#" class="dribbble" target="_blank" data-toggle="tooltip" data-original-title="Github">
-					                                    <i class="fas fa-github"></i>
-					                                </a>
-					                            </li>
-					                        </ul>
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					    </div>
-							</footer>
-            </div>
-        </div><!-- END: st-pusher -->
-    </div><!-- END: st-container -->
-</div><!-- END: body-wrap -->
-
-<!-- SCRIPTS -->
-<a href="#" class="back-to-top btn-back-to-top"></a>
