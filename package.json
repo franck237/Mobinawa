@@ -2,6 +2,7 @@
   "name": "Mobinawa_Test",
   "private": true,
   "dependencies": {
+    "@fancyapps/fancybox": "https://github.com/fancyapps/fancybox",
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
