@@ -98,9 +98,9 @@
 	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-directions"></i>
 	                            	<h6 style="margin-top: 8px">GPS</h6>
 	                            </button>
-	                          </div>
 	                        </div>
-	                        <hr>
+	                      </div>
+	                      <hr>
 
 
                     	<div style="padding: 10px 0px">
@@ -123,79 +123,46 @@
             				</div>
         					</div>
         					<div role="tabpanel" class="tab-pane" id="tabTwo-2">
-            				<div class="tab-body" style="padding: 0px 15px">
-                			<div class="row">
-											  <div class="col-md-12">
+            				<div class="tab-body" style="padding: 0px 15px;">
+                				<p class="imglist" style="max-width: 1000px; text-align: center">
+														<%if @company.upload_logo.attached?%>
+  													 		<%= link_to image_tag(@company.upload_logo, width: 240, height: 160, style:"margin-bottom:5px"), @company.upload_logo, :data => { :fancybox => 'images', :caption => 'Upload Logo' } %>
+														<%else%>
+								      					<%= link_to image_tag(@company.logo, width: 240, height: 160, style:"margin-bottom:5px"), @company.logo, :data => { :fancybox => 'images', :caption => 'Logo' } %></span>
+								      			<%end%>
+												
+														<% @company.photo_companies.each do |photo| %>
+														    <%= link_to image_tag(@company.photo, width: 240, height: 160, style:"margin-bottom:5px"), @company.photo, :data => { :fancybox => 'images', :caption => 'Upload photo' } %>
+														<%end%>
+														    	
+														  <a href="https://source.unsplash.com/eWFdaPRFjwE/1500x1000" data-fancybox="images" data-caption="Mallorca, Llubí, Spain">
+														    <img src="https://source.unsplash.com/eWFdaPRFjwE/240x160" style="margin-bottom: 5px" />
+														  </a>
 
-											    <div id="mdb-lightbox-ui"></div>
+														  <a href="https://source.unsplash.com/c1JxO-uAZd0/1500x1000" data-fancybox="images" data-caption="Danish summer">
+														    <img src="https://source.unsplash.com/c1JxO-uAZd0/240x160" style="margin-bottom: 5px"/>
+														  </a>
 
-											    <div class="mdb-lightbox">
+														  <a href="https://source.unsplash.com/eXHeq48Z-Q4/1500x1000" data-fancybox="images" data-caption="Sunrise above a sandy beach">
+														    <img src="https://source.unsplash.com/eXHeq48Z-Q4/240x160" style="margin-bottom: 5px"/>
+														  </a>
 
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(145).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(145).jpg" class="img-fluid">
-											        </a>
-											      </figure>
+														  <a href="https://source.unsplash.com/RFgO9B_OR4g/1500x1000" data-fancybox="images" data-caption="Woman on a slope by the shore">
+														    <img src="https://source.unsplash.com/RFgO9B_OR4g/240x160" style="margin-bottom: 5px"/>
+														  </a>
 
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(150).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
+														  <a href="https://source.unsplash.com/7bwQXzbF6KE/1500x1000" data-fancybox="images" data-caption="Mountain hiking sunset">
+														    <img src="https://source.unsplash.com/7bwQXzbF6KE/240x160" style="margin-bottom: 5px"/>
+														  </a>
 
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(152).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(152).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
+														  <a href="https://source.unsplash.com/NhU0nUR7920/1500x1000" data-fancybox="images" data-caption="Sunset Picnic">
+														    <img src="https://source.unsplash.com/NhU0nUR7920/240x160" style="margin-bottom: 5px"/>
+														  </a>
 
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(42).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(42).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
-
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(151).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(151).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
-
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(40).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(40).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
-
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(148).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(148).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
-
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(147).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
-
-											      <figure class="col-md-4">
-											        <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(149).jpg" data-size="1600x1067">
-											          <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(149).jpg" class="img-fluid" />
-											        </a>
-											      </figure>
-
-											    </div>
-
-											  </div>
-											</div>
-                			<p>
-                				<%if @company.upload_logo.attached?%>
-														<%= image_tag(@company.upload_logo, width: 60, height: 60) %>
-												<%else%>
-								      			<%= image_tag(@company.logo, width: 60, height: 60) %>
-								      	<%end%>
-                			</p>
+														  <a href="https://source.unsplash.com/B2LYYV9-y0s/1500x1000" data-fancybox="images" data-caption="On them Indiana Nights">
+														    <img src="https://source.unsplash.com/B2LYYV9-y0s/240x160" style="margin-bottom: 5px"/>
+														  </a>
+														</p>             			
             				</div>
         					</div>
         					<div role="tabpanel" class="tab-pane" id="tabTwo-3">

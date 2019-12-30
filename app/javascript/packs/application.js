@@ -11,6 +11,7 @@ require("channels")
 import "../stylesheets/application.scss";
 import "bootstrap";
 import "@fortawesome/fontawesome-free/js/all";
+import "@fancyapps/fancybox/dist/jquery.fancybox.min";
 
 document.addEventListener("turbolinks:load", () => {
 	$('[data-toggle="tooltip"]').tooltip()
@@ -22,3 +23,16 @@ document.addEventListener("turbolinks:load", () => {
 //
 const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$('[data-fancybox="images"]').fancybox({
+  buttons : [ 
+    'slideShow',
+    'share',
+    'zoom',
+    'fullScreen',
+    'close'
+  ],
+  thumbs : {
+    autoStart : true
+  }
+});
