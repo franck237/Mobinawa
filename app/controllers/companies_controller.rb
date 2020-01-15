@@ -21,6 +21,9 @@ class CompaniesController < ApplicationController
     @company.admin_id = @admin.id
     @company.status = 0
     @company.country_id = @admin.country_id
+    if @company.upload_logo.present?
+    @company.logo = @pcompany.upload_logo
+    end
       if @company.save
         redirect_to @admin, notice: 'Your Company was successfully created.'
       else
