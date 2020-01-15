@@ -28,4 +28,8 @@ class Product < ApplicationRecord
   delegate :admin, to: :company
   delegate :country, to: :company
   delegate :sub_sectors, to: :company
+
+  #Active Storage associations for multiple photo_products & upload_image
+ 	has_one_attached :upload_image
+ 	has_many_attached :photo_products
 end

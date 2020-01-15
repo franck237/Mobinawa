@@ -14,7 +14,7 @@
 					<h3> 🏢  Below is your company  🏢</h3>
 				<%end%>
 				<!-- List of companies in the company -->
-					<div class="row-wrapper">
+					<div class="row-wrapper text-primary">
 						<div class="row cols-xs-space cols-sm-space cols-md-space">
 							<% @admin.companies.each do |company| %>
 								<div class="card" style="width: 92%; margin: auto;">
@@ -34,7 +34,15 @@
 								      <div class="card-body" style="padding: 5px 25px">
 								        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold;"><%= link_to (company.name), admin_company_path(company.id) %></h5>
 								        <h6 class="card-text" style="margin-bottom: 0; color: orange"><%= company.sub_sector.name %></h6>
-								        <p class="card-text font-weight-normal c-gray"><%= company.description %></p>
+								        <p class="card-text font-weight-normal"><%= company.description %></p>
+								        <%if company.products.length > 1 %>
+								        		<p class="card-title" style="margin-bottom: 0; font-weight: bold;"> - Vous avez <%= company.products.length %> produits à l'affiche - </p>
+								        	<%elsif company.products.length == 1 %>
+								        		<p class="card-title" style="margin-bottom: 0; font-weight: bold;"> - Vous avez <%= company.products.length %> produits à l'affiche - </p>
+								        	<%else%>
+								        		<p class="card-title" style="margin-bottom: 0; font-weight: bold;"> - Vous n'avez pas de produit à l'affiche - </p>
+								       	<%end%>
+								       	<p class="card-text font-weight-normal"><%= link_to 'Créez un nouveau produit ➡', new_admin_company_product_path(@admin, company) %></p>
 								      </div>
 								    </div>
 								  </div>
