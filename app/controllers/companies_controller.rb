@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @products = @company.products.order(:title)
   end
 
   def new
