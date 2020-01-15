@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
     @company.admin_id = @admin.id
     @company.status = 0
     @company.country_id = @admin.country_id
-    if @company.upload_logo.present?
+    if @company.upload_logo.attached?
     @company.logo = @pcompany.upload_logo
     end
       if @company.save
