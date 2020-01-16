@@ -103,7 +103,14 @@
 	                            	<h6 style="margin-top: 8px">GPS</h6>
 	                            </button>
 	                        </div>
+	                        <!-- A revoir -->
+	                        <div class="panel-body text-center" style="margin-top: 30px">
+	                        	<%= link_to "Buy Products", company_products_path(@company), class: "btn btn-primary" %>
+	                        	<%= link_to "Book / Reserve", company_product_path(@company), class: "btn btn-primary" %>
+	                        </div>
 	                      </div>
+	                      
+	                      
 	                      <hr>
 
 
@@ -171,16 +178,8 @@
         					</div>
         					<div role="tabpanel" class="tab-pane" id="tabTwo-3">
             				<div class="tab-body" style="padding: 0px 15px">
-                			<p>
-                    		Detractis detrahere concipere ac ut et inveniant to. Im perductae ut at ecclesiae assentiri eo. Ea ergo ausi ac otii suas. Utrum me sequi falsi ut atque. Existeret conformes his rei scientiis. Virorum corpora hac iis brachia
-                			</p>
-                			<p>
-                    		Viam sumi mo id erit. Objectioni mo de necessario crediderim. Imo terra vox alios aut lor quasi. Vim quaero aut videri pendam plures duo. Extat neque arcte re ad etiam.
-                			</p>
 
 							                			        <!-- List of the Products of a Company -->
-							        <div role="tabpanel" class="tab-pane" id="tabTwo-3">
-							            <div class="tab-body" style="padding: 0px 15px">
 							                <div class="body-wrap shop-default shop-minimalist">
 													      <div id="st-container" class="st-container">
 													          <div class="st-pusher">
@@ -190,6 +189,7 @@
 																								    <div class="container">
 																								        <div class="section-title section-title--style-1 text-center">
 																								            <h3 class="section-title-inner heading-6 strong-600 text-uppercase ls-2">
+																								            	<a name="products"></a>
 																								                <span>List of Products</span>
 																								            </h3>
 																								            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 font-custom-4 text-center">
@@ -206,9 +206,9 @@
 																								                        <div class="product-image">
 																								                            <div class="view view-first">
 																								                            			<%if product.upload_image.attached?%>
-																																						      	<%= link_to image_tag(product.upload_image), product_path(product.id) %>
+																																						      	<%= link_to image_tag(product.upload_image.variant(resize: "300x300"), class: "rounded mx-auto d-block"), product_path(product.id) %>
 																																						      <%else%>
-																																						      	<%= link_to image_tag(product.image_product), product_path(product.id) %>
+																																						      	<%= link_to image_tag(product.image_product, width: 300, class: "rounded mx-auto d-block"), product_path(product.id) %>
 																																						      <%end%>
 																								                            </div>
 
@@ -284,9 +284,6 @@
 													</div><!-- END: body-wrap -->
 							            </div>
 							        </div>
-
-            				</div>
-        					</div>
         					<div role="tabpanel" class="tab-pane" id="tabTwo-4">
             				<div class="tab-body" style="padding: 0px 15px">
                 			<p>
