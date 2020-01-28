@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :adresses
   resources :cities
   get 'homes/index'
   devise_for :admins, controllers: { sessions: 'admins/sessions', :registrations => 'admins/registrations' }
