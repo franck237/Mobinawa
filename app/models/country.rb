@@ -20,9 +20,11 @@ class Country < ApplicationRecord
 	presence: true,
 	numericality: {only_integer: true }
 
-	#Associations: One user have many Admin and many companies
+	#Associations: One country have many Admin, many companies, many cities
 	has_many :admins
 	has_many :companies
+	has_many :cities
+	has_many :adresses, through: :cities
 
-	accepts_nested_attributes_for :admins, :companies
+	accepts_nested_attributes_for :admins, :companies, :cities
 end
