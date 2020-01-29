@@ -68,8 +68,9 @@ class CompaniesController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
+  # With the addition of the City & Adress table, we could move attribute :country_id but I don't know how to nest at 2 level for the Country, in the Adress, in the City, so right now its a solution ! Now let's see how to use in the forms
   def company_params
-    params.require(:company).permit(:number, :name, :email, :website, :logo, :description, :sub_sector_id, :admin_id, :country_id, :upload_logo, photo_companies: [], sub_sectors_attributes: [:sector])
+    params.require(:company).permit(:number, :name, :email, :website, :logo, :description, :sub_sector_id, :admin_id, :country_id, :upload_logo, photo_companies: [], sub_sectors_attributes: [:sector], :adress_id, adresses_attributes: [:city])
   end
 
    #An admin can not acces the dashboard of another admin
