@@ -9,6 +9,7 @@ class CompaniesController < ApplicationController
 
   def show
     @products = @company.products.order(:title)
+    @country = Country.find(@company.country_id)
   end
 
   def new
@@ -21,8 +22,9 @@ class CompaniesController < ApplicationController
     @company.admin_id = @admin.id
     @company.status = 0
     @company.country_id = @admin.country_id
+    @company.adress_id = Adress.first.id
     if @company.upload_logo.attached?
-    @company.logo = @pcompany.upload_logo
+    @company.logo = @company.upload_logo
     end
       if @company.save
         redirect_to @admin, notice: 'Your Company was successfully created.'
@@ -70,7 +72,7 @@ class CompaniesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   # With the addition of the City & Adress table, we could move attribute :country_id but I don't know how to nest at 2 level for the Country, in the Adress, in the City, so right now its a solution ! Now let's see how to use in the forms
   def company_params
-    params.require(:company).permit(:number, :name, :email, :website, :logo, :description, :sub_sector_id, :admin_id, :country_id, :upload_logo, photo_companies: [], sub_sectors_attributes: [:sector], :adress_id, adresses_attributes: [:city])
+    params.require(:company).permit(:number, :name, :email, :website, :logo, :description, :admin_id, :country_id, :sub_sector_id, :upload_logo, photo_companies: [], sub_sector_attributes: [:id, :sector_id], adress_attributes: [:id, :name, :city_id])
   end
 
    #An admin can not acces the dashboard of another admin

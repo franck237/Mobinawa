@@ -23,16 +23,17 @@
 								      <div class="card-img">
 
 								      	<%if company.upload_logo.attached?%>
-												  <span style="margin-left: 5px;"><%= link_to image_tag(company.upload_logo, width: 75, height: 70), admin_company_path(company.id) %></span>
+												  <span style="margin-left: 5px;"><%= link_to image_tag(company.upload_logo, width: 75, height: 70), admin_company_path(@admin, company.id) %></span>
+												<%elsif company.logo?%>
+												  <span style="margin-left: 5px;"><%= link_to image_tag(company.logo, width: 75, height: 70), admin_company_path(@admin, company.id) %></span>
 												<%else%>
-												  <span style="margin-left: 5px;"><%= link_to image_tag(company.logo, width: 75, height: 70), admin_company_path(company.id) %></span>
 												<%end%>
 
 								    	</div>
 								    </div>
 								    <div class="col">
 								      <div class="card-body" style="padding: 5px 25px">
-								        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold;"><%= link_to (company.name), admin_company_path(company.id) %></h5>
+								        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold;"><%= link_to (company.name), admin_company_path(@admin, company.id) %></h5>
 								        <h6 class="card-text" style="margin-bottom: 0; color: orange"><%= company.sub_sector.name %></h6>
 								        <p class="card-text font-weight-normal"><%= company.description %></p>
 								        <%if company.products.length > 1 %>

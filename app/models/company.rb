@@ -27,6 +27,6 @@ validates :status, inclusion: { in: [ 0, 1, 2 ] }
 
 #Delegations: One company can retrieve sectors refering to his sub_sector (now we can do company.sector.name for example)
  delegate :sector, to: :sub_sector
- delegate :city, to: :adress
- delegate :country, to: :city
+ delegate :city, to: :adress, allow_nil: true
+ delegate :country, to: :city, allow_nil: true
 end
