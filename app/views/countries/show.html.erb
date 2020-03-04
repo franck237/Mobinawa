@@ -1,4 +1,4 @@
-<section class="slice-lg masthead full-bg01">
+<section class="slice-lg masthead full-bg1" id="home-page">
   <div class="container" style="padding: 0;">
     <div class="row">
       <div class="col-md-12" style="margin: 0;">
@@ -33,13 +33,17 @@
               <div class="flag-bar">
                 <div class="btn-group dropright">
                   <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%= image_pack_tag @country.flag, width: 45 %><%= @country.name %>
+                    <%= image_pack_tag @country.flag, width: 45 %>
+                    <%#= @country.name %>
                   </button>
-                  <div class="dropdown-menu">
+                  <div class="dropdown-menu drop-flag-list">
                     <!-- Dropdown menu links -->
-                    <% @countries.each.with_index(1) do |c| %>
-                    <div class="dropdown-item"><%= link_to image_pack_tag(c.flag, width: 25), country_path(c.id) %><span> </span><%= link_to (c.name), country_path(c.id), style: 'color:blue' %>
-                    </div>
+                    <% @countries.each.with_index(1) do |c, index| %>
+                      <div class="dropdown-item" data-img-index="<%= index %>">
+                        <p><%= link_to image_pack_tag(c.flag, width: 35), country_path(c.id) %>
+                        <%= link_to (c.name), country_path(c.id), style: 'color:blue', class: 'company-name' %></p>
+                        <span class="orange-circle" style="display: none;"><span></span>
+                      </div>
                     <% end %>
                   </div>
                 </div>
@@ -63,6 +67,7 @@
                   <div class="text-white" style="margin-bottom: 2rem; padding: 0">
                     <%= link_to image_pack_tag(sector.icon, width: 45), country_sector_path(@country, sector) %>
                     <p><%= link_to (sector.name), country_sector_path(@country, sector) %></p>
+
                     <!-- <div class="block-icon text-white">
                       <%#= link_to image_pack_tag(sector.icon, width: 60, height: 60), country_sector_path(@country, sector) %>
                     </div>
