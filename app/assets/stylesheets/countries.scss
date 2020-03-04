@@ -1,3 +1,266 @@
-// Place all the styles related to the countries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@font-face {
+  font-family: 'Open Sans';
+  src: url(https://fonts.googleapis.com/css?family=Open+Sans&display=swap);
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  background: #fff;
+  color: #121617;
+  font-family: 'Open Sans';
+  line-height: 1.6;
+  font-size: 14px;
+  text-align: left;
+  overflow-x: hidden;
+  letter-spacing: 0.3px;
+}
+html,body,p,ul,li,ol,h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+ul,li {
+  list-style-type: none;
+}
+img {
+  max-width: 100%;
+}
+a, a:hover, a:focus {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+input:focus {
+  outline: none !important;
+}
+.btn {
+  white-space: initial;
+}
+.btn:focus, .btn:hover {
+  color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0,123,255,0);
+}
+.table {
+  margin: 0;
+}
+.hide {
+  display: none !important;
+}
+.st-content, .notice, .alert {
+  display: none;
+}
+.masthead {
+  padding: 35px 25px 20px !important;
+  height: 100vh;
+}
+
+.full-height {
+  height: calc(100vh - 55px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.join-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 10px;
+}
+.join {
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: #fff;
+  height: 34px;
+  line-height: 30px;
+  padding: 0 8px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.join:hover {
+  color: rgba(0,0,0,0.8);
+  background: #fff;
+}
+.back-menu {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.back-menu a {
+  margin: 0 30px 0 0;
+}
+.logo-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.logo-heading h3 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 33px;
+  text-align: left;
+  letter-spacing: 0.0128571em;
+  color: #FFFFFF;
+  margin: 0 0 0 20px;
+}
+.logo-heading h3 p {
+  font-size: 22px;
+  margin: 0;
+}
+.search-tap-menu .choose-tap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.search-tap-menu .choose-tap li {
+  width: 50%;
+  box-sizing: border-box;
+}
+.search-tap-menu .choose-tap li a {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #fff;
+  border-bottom: 3px solid transparent;
+}
+.active-border, .search-tap-menu .choose-tap li a:hover {
+  border-bottom: 3px solid #E26125 !important;
+}
+.country-search {
+}
+.selected-flag {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 15px;
+  color: #B3B3B3;
+  text-align: left;
+}
+.flag-bar {
+  margin: 5px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flag-bar .dropright button {
+  background: transparent !important;
+  padding: 0;
+  height: 45px;
+}
+.dropright .dropdown-toggle::after {
+  display: none !important;
+}
+.search-input {
+  position: relative;
+  width: calc(100% - 52px);
+  margin: 5px 0 0 7px;
+}
+.search-input form {
+  margin: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.search-input input {
+  background: rgba(255,255,255,0.7) !important;
+  height: 45px !important;
+  line-height: 45px !important;
+  padding: 0 35px 0 46px !important;
+  border-radius: 10px !important;
+  border: none !important;
+  width: 100% !important;
+  font-size: 18px !important;
+}
+.search-input .input-group .input-group-append {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  text-align: center;
+  color: #000;
+}
+.search-input .input-group .input-group-append button {
+  height: 36px;
+  padding: 3px 10px 0;
+  border-right: 1px solid #000 !important;
+  border: none;
+  opacity: 1;
+}
+.cursor-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 45px;
+  line-height: 45px;
+  width: 35px;
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+}
+.mobinawa-network {
+  margin: 10px 0 0 0;
+}
+.mobinawa-network a {
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #F5AA1C 0%, #E26125 100%);
+  border-radius: 10px;
+  height: 34px;
+  line-height: 34px;
+}
+.multi-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+  height: calc(100vh - 84vh);
+  overflow-y: hidden;
+  margin: 20px -20px 0 -20px;
+}
+.multi-menu .text-white {
+  width: 25%;
+  padding: 10px 0 !important;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: stretch;
+  margin: 0 !important;
+}
+.multi-menu .text-white a img {
+  width: 45px !important;
+}
+.multi-menu .text-white p {
+  margin: 0 0 10px !important;
+}
+.multi-menu .text-white p a {
+  color: #fff;
+  font-size: 11px;
+  line-height: 15px;
+  text-align: center;
+  margin: 10px 0 !important;
+}
+.multi-menu-scroll {
+  overflow-y: auto;
+  height: calc(100vh - 212px);
+}

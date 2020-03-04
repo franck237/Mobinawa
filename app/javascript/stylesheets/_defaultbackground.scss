@@ -5,4 +5,16 @@
   padding-bottom: 100px;
   color: white;
   background-image: url("../images/bg-pattern.png"), linear-gradient(to left, #E26125, #154577);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: center center;
+}
+.full-bg01 {
+  background-image: url("../images/bg_background01.png") !important;
+}
+.full-bg02 {
+  background-image: url("../images/bg_background01.png") !important;
+}
+.full-bg03 {
+  background-image: url("../images/bg_background01.png") !important;
 }
