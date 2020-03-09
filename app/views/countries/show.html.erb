@@ -1,85 +1,110 @@
-<section class="slice-lg masthead">
-    <!-- Mask overlay -->
+<section class="slice-lg masthead full-bg1" id="home-page">
+  <div class="container" style="padding: 0;">
+    <div class="row">
+      <div class="col-md-12" style="margin: 0;">
+        <div class="fluid-paragraph paragraph-md full-height">
+          <!-- <p> -->
+          <!-- <span>Welcome on Mobinawa </span> -->
+          <!-- Default dropright button -->
+          <div class="join-user">
+            <a class="join" href="javascript:void(0)">join</a>
+            <p class="back-menu hide">
+              <a href="javascript:void(0)">
+                <%= image_pack_tag "icon_arrow_left_white.png" %>
+              </a> Choose the category</p>
+            <a href="javascript:void(0)">
+              <%= image_pack_tag "icon_user.png" %>
+            </a>
+          </div>
+          <div class="logo-heading">
+            <%= image_pack_tag "logo/mobinawa_small.png", alt: "My Logo", width: 57, height: 80 %>
+            <h3>Hello!<p>What are you searching?</p></h3>
+          </div>
 
+          <div class="search-tap-menu">
+            <ul class="choose-tap">
+              <li><a class="enter-text active-border" href="javascript:void(0)">Enter your<br>text here</a></li>
+              <li><a class="choose-categories" href="javascript:void(0)">Choose the<br>categories</a></li>
+            </ul>
 
-    <!-- Container -->
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-12" style="margin: 0">
-                <div class="fluid-paragraph paragraph-md">
-
-                	<p><span>Welcome on Mobinawa </span>
-                			<!-- Default dropright button -->
-											<div class="btn-group dropright">
-											  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											    <%= image_pack_tag @country.flag, width: 30 %><span> </span><%= @country.name %>
-											  </button>
-											  <div class="dropdown-menu">
-											    <!-- Dropdown menu links -->
-											    <% @countries.each.with_index(1) do |c| %>
-											    <div class="dropdown-item">
-											    	<%= link_to image_pack_tag(c.flag, width: 25), country_path(c.id) %><span> </span><%= link_to (c.name), country_path(c.id), style: 'color:blue' %>
-											    </div>
-											    
-											    <% end %>
-											  </div>
-											</div>
-                	</p>
-
-                    <div><%= flash[:alert] %></div>
-                    <!-- Left aligned Mobinawa icon -->
-                    <div class="icon-block icon-block--style-1-v1">
-                        <div class="block-icon align-self-center" style="padding: 5px 0px 0px 2px">
-                            <%= image_pack_tag "logo/mobinawa_small.png", alt: "My Logo", width: 75, height: 75 %>
-                        </div>
-                        <div class="block-content" style="text-align: left; margin-left: 15px">
-                             <h2 class="heading heading-1 strong-400 text-white" style="margin-bottom: 0">
-                                Hello,
-                            </h2>
-                            <h3 class="heading heading-3 strong-400 text-white">What are you searching for ?</h3>
-                        </div>
-                    </div>
-
-                    <!-- Search bar real (Added after)
-                    <%= form_tag(search_companies_path, :method => "get", class: 'navbar-form navbar-left') do %>  
-                        <div class="input-group">
-                              <%= search_field_tag :search, params[:search], placeholder: "Enter the name of the company here", class: "form-control" %>
-                              <div class="input-group-btn">
-                                <%= button_tag "", :class => 'btn btn-info fas fa-search',:name => nil%>
-                              </div>
-                        </div>
-                     <% end %>  -->
-
-                    <!-- Search bar modifié (sans boomerang) -->
-                <%= form_tag(search_companies_path, :method => "get", class: 'p-1 bg-light rounded shadow-sm mb-4', style: 'width:100%; margin: auto') do %>  <!-- En rajoutant rounded-pill apres rounded, ajoute un meilleur effet mais un petit probleme visuel (peut etre a deplacer dans le search field tag egalement) -->
+            <!-- Search Bar -->
+            <div class="country-search">
+              <div class="selected-flag">Cameroon</div>
+              <div class="flag-bar">
+                <div class="btn-group dropright">
+                  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= image_pack_tag @country.flag, width: 45 %>
+                    <%#= @country.name %>
+                  </button>
+                  <div class="dropdown-menu drop-flag-list">
+                    <!-- Dropdown menu links -->
+                    <% @countries.each.with_index(1) do |c, index| %>
+                      <div class="dropdown-item" data-img-index="<%= index %>">
+                        <p><%= link_to image_pack_tag(c.flag, width: 35), country_path(c.id) %>
+                        <%= link_to (c.name), country_path(c.id), style: 'color:blue', class: 'company-name' %></p>
+                        <span class="orange-circle" style="display: none;"><span></span>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="search-input">
+                  <%= form_tag(search_companies_path, :method => "get", class: 'p-1 bg-light rounded shadow-sm mb-4', style: 'width:100%; margin: auto') do %>
+                    <!-- En rajoutant rounded-pill apres rounded, ajoute un meilleur effet mais un petit probleme visuel (peut etre a deplacer dans le search field tag egalement) -->
                     <div class="input-group">
-                        <div class="input-group">
-                          <%= search_field_tag :search, params[:search], placeholder: "Enter the name of the company here", class: "form-control border-0 bg-light" %>
-                          <div class="input-group-append">
-                            <button type="submit" class="btn btn-link text-primary"><i class="fas fa-search"></i></button> <!--Normalement utiliser celle du haut avec boomerang -->
-                          </div>
-                        </div>
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-link text-primary"><i class="fas fa-search" style="color: #000; font-size: 20px;"></i></button> <!--Normalement utiliser celle du haut avec boomerang -->
+                      </div>
+                      <%= search_field_tag :search, params[:search], class: "form-control border-0 bg-light" %>
+                      <a href="javascript:void(0)" class="cursor-icon"><i class="fa fa-microphone"></i></a>
                     </div>
-                <% end %>
-                    <br>
-            </div>
-        </div>
-    </div>
-    <br>
-    		
-        <!-- Boucle Index Categories -->
-        <div class="row text-white">
-            <% @sectors.each.with_index(1) do |sector| %>
-            <div class="col-6 col-lg-4 text-white" style="margin-bottom: 2rem; padding: 0">
-                    <div class="block-icon text-white">
-                        <%= link_to image_pack_tag(sector.icon, width: 60, height: 60), country_sector_path(@country, sector) %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="mobinawa-network hide"><a href="javascript:void(0)">Join the mobinawa network</a></div>
+              <!-- Boucle Index Categories -->
+              <div class="multi-menu">
+                <% @sectors.each.with_index(1) do |sector| %>
+                  <div class="text-white" style="margin-bottom: 2rem; padding: 0">
+                    <%= link_to image_pack_tag(sector.icon, width: 45), country_sector_path(@country, sector) %>
+                    <p><%= link_to (sector.name), country_sector_path(@country, sector) %></p>
+
+                    <!-- <div class="block-icon text-white">
+                      <%#= link_to image_pack_tag(sector.icon, width: 60, height: 60), country_sector_path(@country, sector) %>
                     </div>
                     <div class="block-content">
-                        <h3 class="heading heading-6 strong-600"><%= link_to (sector.name), country_sector_path(@country, sector), class: "text-white" %></h3>
-                    </div>
+                      <h3 class="heading heading-6 strong-600"><%#= link_to (sector.name), country_sector_path(@country, sector), class: "text-white" %></h3>
+                    </div> -->
+                  </div>
+                <% end %>
+              </div>
             </div>
-            <% end %>
+          </div>
+          <!-- </p> -->
+          <!-- <div><%#= flash[:alert] %></div> -->
+          <!-- Left aligned Mobinawa icon -->
+          <!-- <div class="icon-block icon-block--style-1-v1">
+            <div class="block-icon align-self-center" style="padding: 5px 0px 0px 2px">
+              <%#= image_pack_tag "logo/mobinawa_small.png", alt: "My Logo", width: 75, height: 75 %>
+            </div>
+            <div class="block-content" style="text-align: left; margin-left: 15px">
+              <h2 class="heading heading-1 strong-400 text-white" style="margin-bottom: 0">
+                Hello,
+              </h2>
+              <h3 class="heading heading-3 strong-400 text-white">What are you searching for ?</h3>
+            </div>
+          </div> -->
+          <!-- Search bar real (Added after)
+            <%#= form_tag(search_companies_path, :method => "get", class: 'navbar-form navbar-left') do %>
+                <div class="input-group">
+                      <%#= search_field_tag :search, params[:search], placeholder: "Enter the name of the company here", class: "form-control" %>
+                      <div class="input-group-btn">
+                        <%#= button_tag "", :class => 'btn btn-info fas fa-search',:name => nil%>
+                      </div>
+                </div>
+             <#% end %>  -->
+          <!-- Search bar modifié (sans boomerang) -->
         </div>
-        
+      </div>
     </div>
-</section> 
+  </div>
+</section>
