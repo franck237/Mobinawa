@@ -42,7 +42,9 @@
                       <div class="dropdown-item" data-img-index="<%= index %>">
                         <p><%= link_to image_pack_tag(c.flag, width: 35), country_path(c.id) %>
                         <%= link_to (c.name), country_path(c.id), style: 'color:blue', class: 'company-name' %></p>
-                        <span class="orange-circle" style="display: none;"><span></span>
+                        <% if @country.name == c.name %>
+                          <span class="orange-circle"><span></span>
+                        <% end %>
                       </div>
                     <% end %>
                   </div>
