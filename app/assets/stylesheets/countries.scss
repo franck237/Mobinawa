@@ -35,6 +35,9 @@ a, a:hover, a:focus {
 input:focus {
   outline: none !important;
 }
+button:focus {
+  outline: none !important;
+}
 .btn {
   white-space: initial;
 }
@@ -255,7 +258,7 @@ input:focus {
 }
 .multi-menu .text-white p a {
   color: #fff;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 15px;
   text-align: center;
   margin: 10px 0 !important;
