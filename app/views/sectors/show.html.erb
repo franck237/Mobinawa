@@ -1,42 +1,9 @@
-<section class="slice-lg masthead" style="padding-top: 30px">
-	<!-- Name of the Sector -->
-		<h3 style="margin: auto; text-align: center; margin-bottom: 1.5rem">Glossary of <%= @sector.name %></h3>
-			<!-- Searcg bar -->
-        <form action="" style="width: 75%; margin: auto;">
-          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-              <div class="input-group">
-                  <input type="search" placeholder="Find your company here" aria-describedby="button-addon1" class="form-control border-0 bg-light">
-                   		<div class="input-group-append">
-                         	<button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                      </div>
-              </div>
-           </div>
-        </form>
-					<!-- List of companies in the Sector -->
-					<div class="row-wrapper">
-						<div class="row cols-xs-space cols-sm-space cols-md-space">
-								<% @companies.each do |company| %>
-								<div class="card" style="width: 92%; margin: auto;">
-								  <div class="row no-gutters">
-								    <div class="col-2 col-lg-1 align-self-center">
-								      <div class="card-img">
-								      	<%if company.upload_logo.attached?%>
-												  <span style="margin-left: 5px;"><%= link_to image_tag(company.upload_logo, width: 75, height: 70), company_path(company.id) %></span>
-												<%else%>
-								      		<span style="margin-left: 5px;"><%= link_to image_tag(company.logo, width: 75, height: 70), company_path(company.id) %></span>
-								      	<%end%>
-								    	</div>
-								    </div>
-								    <div class="col">
-								      <div class="card-body" style="padding: 5px 25px">
-								        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold;"><%= link_to (company.name), company_path(company.id) %></h5>
-								        <h6 class="card-text" style="margin-bottom: 0; color: orange"><%= company.sub_sector.name %></h6>
-								        <p class="card-text font-weight-normal c-gray" style="color: #C11C12"><%= company.description %></p>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-						<%end%>
-						</div>
-					</div>
+<section class="slice-lg masthead" style="background: #fff !important; padding: 0 !important;">
+  <!-- Name of the Sector -->
+  <div class="menu-heading">
+    <a class="back-to-menus" href="index.html">
+      <%= image_pack_tag "icon_arrow_left_black.png" %>
+    </a>
+    Glossary of <%= @sector.name %>
+  </div>
 </section>
