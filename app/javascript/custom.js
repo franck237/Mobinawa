@@ -22,12 +22,3 @@ $(document).on("click", ".back-menu", function() {
   $(".multi-menu").removeClass("multi-menu-scroll");
   $(".full-height").css({'justify-content':'space-between'});
 });
-
-// Change background image logic
-$(document).on("click", ".dropdown-item", function(){
-  homeClasses = $("#home-page").attr('class').split("full-bg")[0]
-  $("#home-page").removeClass().addClass((homeClasses + "full-bg" + this.dataset["imgIndex"]));
-  $(".selected-flag").text($(this).find("a.company-name").text());
-  $(".orange-circle").hide();
-  $(this).find(".orange-circle").show();
-})

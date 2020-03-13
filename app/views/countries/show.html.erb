@@ -1,4 +1,4 @@
-<section class="slice-lg masthead full-bg1" id="home-page">
+<section class="slice-lg masthead bg-<%= @country.name %>">
   <div class="container" style="padding: 0;">
     <div class="row">
       <div class="col-md-12" style="margin: 0;">
@@ -29,20 +29,21 @@
 
             <!-- Search Bar -->
             <div class="country-search">
-              <div class="selected-flag">Cameroon</div>
+              <div class="selected-flag"><%= @country.name %></div>
               <div class="flag-bar">
                 <div class="btn-group dropright">
-                  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none;">
                     <%= image_pack_tag @country.flag, width: 45 %>
-                    <%#= @country.name %>
                   </button>
                   <div class="dropdown-menu drop-flag-list">
                     <!-- Dropdown menu links -->
                     <% @countries.each.with_index(1) do |c, index| %>
-                      <div class="dropdown-item" data-img-index="<%= index %>">
+                      <div class="dropdown-item">
                         <p><%= link_to image_pack_tag(c.flag, width: 35), country_path(c.id) %>
                         <%= link_to (c.name), country_path(c.id), style: 'color:blue', class: 'company-name' %></p>
-                        <span class="orange-circle" style="display: none;"><span></span>
+                        <% if @country.name == c.name %>
+                          <span class="orange-circle"><span></span>
+                        <% end %>
                       </div>
                     <% end %>
                   </div>

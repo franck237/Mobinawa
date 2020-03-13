@@ -17,8 +17,8 @@
   <body>
    <!-- Ajout d'une NavBar bootstrap-->
             <!-- Header -->
-            <div class="st-content">
-                <div class="st-content-inner">                
+            <div class="st-content dis-none">
+                <div class="st-content-inner">
                   <div class="header">
                     <!-- Navbar -->
                     <nav class="navbar navbar-expand-lg navbar--bold navbar--style-2 navbar-light bg-default  navbar--bb-1px">
@@ -34,7 +34,7 @@
                           </span>
                           </button>
                         </div>
-                        <div class="collapse navbar-collapse align-items-center justify-content-center" id="navbar_main">                   
+                        <div class="collapse navbar-collapse align-items-center justify-content-center" id="navbar_main">
                           <!-- Navbar links -->
                           <ul class="navbar-nav">
                               <li class="nav-item dropdown megamenu">
@@ -42,7 +42,7 @@
                               </li>
                               <li class="nav-item dropdown megamenu">
                                   <%= link_to 'All Products', products_path, class: "nav-link btn mr-1"  %>
-                              </li>                            
+                              </li>
                               <li class="nav-item dropdown megamenu">
                                   <% if !current_admin%>
                                   <% else %>
@@ -52,10 +52,10 @@
                           </ul>
                           <ul class="navbar-nav ml-lg-auto">
                               <% if !current_admin%>
-                         <!--     <li class="nav-item ">    Car probleme d'affichage lors du collapse -->                        
+                         <!--     <li class="nav-item ">    Car probleme d'affichage lors du collapse -->
                                 <%=link_to 'SignIn', new_admin_session_path, class: "btn btn-outline-primary mr-1 ml-1" %>
                               </li>
-                              <li class="nav-item ">  
+                              <li class="nav-item ">
                               <%= link_to 'SignUp',new_admin_registration_path, class: "btn btn-outline-primary mr-1 ml-1" %>
                               </li>
                               <% else %>
@@ -63,7 +63,7 @@
                               <%= link_to 'My Profile',admin_path(current_admin.id), class: "nav-link btn btn-outline-primary mr-1" %>
                               </li>
                               <li class="nav-item ">
-                              <%= link_to 'SignOut',destroy_admin_session_path, method: :delete, data: {confirm: 'Êtes-vous sûr de vous déconnecter ?'}, class: "nav-link btn btn-outline-primary" %> 
+                              <%= link_to 'SignOut',destroy_admin_session_path, method: :delete, data: {confirm: 'Êtes-vous sûr de vous déconnecter ?'}, class: "nav-link btn btn-outline-primary" %>
                               </li>
                               <% end %>
                           </ul>
@@ -72,9 +72,9 @@
                     </nav>
                   </div>
                 </div>
-            </div> 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+            </div>
+      <p class="notice dis-none"><%= notice %></p>
+      <p class="alert dis-none"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
