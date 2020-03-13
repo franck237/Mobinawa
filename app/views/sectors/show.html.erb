@@ -6,4 +6,15 @@
     </a>
     Glossary of <%= @sector.name %>
   </div>
+
+  <div class="flag-bar details-search">
+    <div class="search-input">
+      <%= image_pack_tag "search_path.png", class: "search-icon" %>
+      <%= image_pack_tag "cursor.png", class: "cursor-icon" %>
+      <input type="search" name="" placeholder="Find your company here" aria-describedby="button-addon1">
+      <%= image_pack_tag "dictation_path.png", class: "dictation-icon" %>
+    </div>
+    <button type="search">map</button>
+  </div>
+
 </section>
