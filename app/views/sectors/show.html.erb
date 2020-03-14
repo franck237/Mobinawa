@@ -1,42 +1,48 @@
-<section class="slice-lg masthead" style="padding-top: 30px">
-	<!-- Name of the Sector -->
-		<h3 style="margin: auto; text-align: center; margin-bottom: 1.5rem">Glossary of <%= @sector.name %></h3>
-			<!-- Searcg bar -->
-        <form action="" style="width: 75%; margin: auto;">
-          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-              <div class="input-group">
-                  <input type="search" placeholder="Find your company here" aria-describedby="button-addon1" class="form-control border-0 bg-light">
-                   		<div class="input-group-append">
-                         	<button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
-                      </div>
-              </div>
-           </div>
-        </form>
-					<!-- List of companies in the Sector -->
-					<div class="row-wrapper">
-						<div class="row cols-xs-space cols-sm-space cols-md-space">
-								<% @companies.each do |company| %>
-								<div class="card" style="width: 92%; margin: auto;">
-								  <div class="row no-gutters">
-								    <div class="col-2 col-lg-1 align-self-center">
-								      <div class="card-img">
-								      	<%if company.upload_logo.attached?%>
-												  <span style="margin-left: 5px;"><%= link_to image_tag(company.upload_logo, width: 75, height: 70), company_path(company.id) %></span>
-												<%else%>
-								      		<span style="margin-left: 5px;"><%= link_to image_tag(company.logo, width: 75, height: 70), company_path(company.id) %></span>
-								      	<%end%>
-								    	</div>
-								    </div>
-								    <div class="col">
-								      <div class="card-body" style="padding: 5px 25px">
-								        <h5 class="card-title" style="margin-bottom: 0; font-weight: bold;"><%= link_to (company.name), company_path(company.id) %></h5>
-								        <h6 class="card-text" style="margin-bottom: 0; color: orange"><%= company.sub_sector.name %></h6>
-								        <p class="card-text font-weight-normal c-gray" style="color: #C11C12"><%= company.description %></p>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-						<%end%>
-						</div>
-					</div>
+<section class="slice-lg masthead" style="background: #fff !important; padding: 0 !important;">
+  <!-- Name of the Sector -->
+  <div class="menu-heading">
+    <a class="back-to-menus" href="/">
+      <%= image_pack_tag "icon_arrow_left_black.png" %>
+    </a>
+    <%= @sector.name %>
+  </div>
+
+  <div class="flag-bar details-search">
+    <div class="search-input">
+      <%= image_pack_tag "icon_search.png", class: "search-icon" %>
+      <%= image_pack_tag "icon_cursor.png", class: "cursor-icon" %>
+      <input type="search" name="" placeholder="Search" aria-describedby="button-addon1">
+      <%= image_pack_tag "icon_dictation.png", class: "dictation-icon" %>
+    </div>
+    <button type="search">map</button>
+  </div>
+
+  <!-- Filter button -->
+  <div class="button-filter">
+    <button>Filter <%= image_pack_tag "image_filter.png"%></button>
+  </div>
+
+	<!-- List of companies in the Sector -->
+  <div class="menu-inner-details">
+    <ul>
+      <% @companies.each do |company| %>
+        <li>
+          <div class="pro-details">
+              <%= link_to (company.name), company_path(company.id),class: "pro-name" %> <%= image_pack_tag "logo.png" , width: 20, height: 20 %>
+             <!--<a class="pro-name" href="menu_full_detail.html"><%= company.name %> <%= image_pack_tag "logo.png" %></a> -->
+            <p class="common-text description-pro"><%= company.sub_sector.name %></p>
+            <p class="common-text code-pro">5 Rue de Thorigny, 57003</p>
+            <p class="common-text timing-pro"><span>Closed.</span> Opens 10:30 Fri</p>
+          </div>
+          <div class="pro-img">
+            <img src="<%= company.logo %>", class="img-rhs">
+            <p class="cont-details">
+              <%= image_pack_tag "icon_call_small.png" %>
+              <%= image_pack_tag "icon_chat_small.png" %>
+            </p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </section>
