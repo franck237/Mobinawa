@@ -28,7 +28,8 @@
       <% @companies.each do |company| %>
         <li>
           <div class="pro-details">
-            <a class="pro-name" href="menu_full_detail.html"><%= company.name %> <%= image_pack_tag "logo.png" %></a>
+              <%= link_to (company.name), company_path(company.id),class: "pro-name" %> <%= image_pack_tag "logo.png" , width: 20, height: 20 %>
+             <!--<a class="pro-name" href="menu_full_detail.html"><%= company.name %> <%= image_pack_tag "logo.png" %></a> -->
             <p class="common-text description-pro"><%= company.sub_sector.name %></p>
             <p class="common-text code-pro">5 Rue de Thorigny, 57003</p>
             <p class="common-text timing-pro"><span>Closed.</span> Opens 10:30 Fri</p>
