@@ -21,4 +21,27 @@
   <div class="button-filter">
     <button>filter <%= image_pack_tag "image_filter.png"%></button>
   </div>
+
+	<!-- List of companies in the Sector -->
+  <div class="menu-inner-details">
+    <ul>
+      <% @companies.each do |company| %>
+        <li>
+          <div class="pro-details">
+            <a class="pro-name" href="menu_full_detail.html"><%= company.name %> <img src="images/logo.png"></a>
+            <p class="common-text description-pro"><%= company.sub_sector.name %></p>
+            <p class="common-text code-pro"><%= company.description %></p>
+            <p class="common-text timing-pro"><span>Closed.</span> Opens 10:30 Fri</p>
+          </div>
+          <div class="pro-img">
+            <img src="<%= company.logo %>">
+            <p class="cont-details">
+              <a href="javascript"><img src="images/icon_call_small.png" alt="Call"></a>
+              <a href="javascript"><img src="images/icon_chat_small.png" alt="Chat"></a>
+            </p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </section>
