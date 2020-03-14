@@ -9,10 +9,10 @@
 
   <div class="flag-bar details-search">
     <div class="search-input">
-      <%= image_pack_tag "search_path.png", class: "search-icon" %>
-      <%= image_pack_tag "cursor.png", class: "cursor-icon" %>
+      <%= image_pack_tag "icon_search.png", class: "search-icon" %>
+      <%= image_pack_tag "icon_cursor.png", class: "cursor-icon" %>
       <input type="search" name="" placeholder="Search" aria-describedby="button-addon1">
-      <%= image_pack_tag "dictation_path.png", class: "dictation-icon" %>
+      <%= image_pack_tag "icon_dictation.png", class: "dictation-icon" %>
     </div>
     <button type="search">map</button>
   </div>
@@ -28,16 +28,16 @@
       <% @companies.each do |company| %>
         <li>
           <div class="pro-details">
-            <a class="pro-name" href="menu_full_detail.html"><%= company.name %> <img src="images/logo.png"></a>
+            <a class="pro-name" href="menu_full_detail.html"><%= company.name %> <%= image_pack_tag "logo.png" %></a>
             <p class="common-text description-pro"><%= company.sub_sector.name %></p>
             <p class="common-text code-pro">5 Rue de Thorigny, 57003</p>
             <p class="common-text timing-pro"><span>Closed.</span> Opens 10:30 Fri</p>
           </div>
           <div class="pro-img">
-            <img src="<%= company.logo %>">
+            <img src="<%= company.logo %>", class="img-rhs">
             <p class="cont-details">
-              <a href="javascript"><img src="images/icon_call_small.png" alt="Call"></a>
-              <a href="javascript"><img src="images/icon_chat_small.png" alt="Chat"></a>
+              <%= image_pack_tag "icon_call_small.png" %>
+              <%= image_pack_tag "icon_chat_small.png" %>
             </p>
           </div>
         </li>
