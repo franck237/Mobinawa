@@ -4,7 +4,7 @@
     <a class="back-to-menus" href="index.html">
       <%= image_pack_tag "icon_arrow_left_black.png" %>
     </a>
-    Glossary of <%= @sector.name %>
+    <%= @sector.name %>
   </div>
 
   <div class="flag-bar details-search">
@@ -30,7 +30,7 @@
           <div class="pro-details">
             <a class="pro-name" href="menu_full_detail.html"><%= company.name %> <img src="images/logo.png"></a>
             <p class="common-text description-pro"><%= company.sub_sector.name %></p>
-            <p class="common-text code-pro"><%= company.description %></p>
+            <p class="common-text code-pro">5 Rue de Thorigny, 57003</p>
             <p class="common-text timing-pro"><span>Closed.</span> Opens 10:30 Fri</p>
           </div>
           <div class="pro-img">
