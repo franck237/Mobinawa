@@ -71,6 +71,17 @@
                     <div class="name-grill"><%= @company.sub_sector.name %></div>
                     <div class="name-address">5 Rue de Thorigny, 75003</div>
                   </div>
+                  <div class="name-image">
+                    <%if @company.upload_logo.attached?%>
+                      <span>
+                        <%= image_tag(@company.upload_logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %>
+                      </span>
+                    <%else%>
+                      <span>
+                        <%= image_tag(@company.logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %>
+                      </span>
+                    <%end%>
+                  </div>
                 </div>
               </div>
             </div>
