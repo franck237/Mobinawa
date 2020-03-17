@@ -149,6 +149,47 @@
             </div>
           </div>
 
+          <div role="tabpanel" class="tab-pane" id="tabTwo-3">
+            <div class="st-content-inner">
+              <div class="product-list">
+                <div class="pro-selector">
+                  <select>
+                    <option>most popular</option>
+                    <option>increasing price</option>
+                    <option>decreasing price</option>
+                    <option>categories -</option>
+                    <option>A to Z</option>
+                  </select>
+                </div>
+
+                <div class="pro-filter-list">
+                  <div class="prodect-cate">The most popular</div>
+                  <ul>
+                    <% @products.each do |product| %>
+                      <li>
+                        <% if product.upload_image.attached? %>
+                          <div class="prod-image">
+                            <%= link_to image_tag(product.upload_image.variant(resize: "300x300"), class: "rounded mx-auto d-block"), product_path(product.id) %>
+                          </div>
+                        <% else %>
+                          <div class="prod-image">
+                            <%= link_to image_tag(product.image_product, class: "rounded mx-auto d-block"), product_path(product.id) %>
+                          </div>
+                        <% end %>
+                        <div class="prod-price-detail">
+                          <div class="prod-name"><%= product.title %></div>
+                          <div class="prod-head">Decoration / Juju Hat</div>
+                          <div class="prod-des"><%= product.description %></div>
+                          <div class="prod-price"><%= number_to_currency(product.price, unit: "FCFA", separator: ".", delimiter: "", format: "%n %u") %></div>
+                        </div>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div role="tabpanel" class="tab-pane" id="tabTwo-4">
           </div>
         </div>
