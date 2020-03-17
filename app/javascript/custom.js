@@ -1,4 +1,3 @@
-// Select tab
 $(document).on("click", ".choose-categories", function() {
   $(this).addClass("active-border");
   $(".enter-text").removeClass("active-border");
@@ -21,4 +20,20 @@ $(document).on("click", ".back-menu", function() {
   $(".total-menu ul").removeClass("overflow-menu");
   $(".multi-menu").removeClass("multi-menu-scroll");
   $(".full-height").css({'justify-content':'space-between'});
+});
+
+$(document).on("click", "#see-more-page", function() {
+  $(".see-more-hidden, #carouselExampleControls").addClass("hide");
+  $(".detailed-pera, .back-arrow-black").removeClass("hide");
+  $(".tabs").addClass("mt-35");
+  $(".overview, .imglist").addClass("height-76");
+  $(".pro-filter-list ul").addClass("height-170");
+});
+
+$(document).on("click", ".back-arrow-black ", function() {
+  $(".see-more-hidden, #carouselExampleControls").removeClass("hide");
+  $(".detailed-pera, .back-arrow-black").addClass("hide");
+  $(".tabs").removeClass("mt-35");
+  $(".overview, .imglist").removeClass("height-76");
+  $(".pro-filter-list ul").removeClass("height-170");
 });
