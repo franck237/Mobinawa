@@ -104,6 +104,50 @@
               <div class="detailed-pera hide"><%= @company.description %></div>
             </div>
           </div>
+
+          <div role="tabpanel" class="tab-pane" id="tabTwo-2">
+            <div class="tab-body">
+              <p class="imglist" style="max-width: 1000px; text-align: center">
+                <% if @company.upload_logo.attached? %>
+                  <%= link_to image_tag(@company.upload_logo), @company.upload_logo, :data => { :fancybox => 'images', :caption => 'Upload Logo' } %>
+                <% else %>
+                  <%= link_to image_tag(@company.logo), @company.logo, :data => { :fancybox => 'images', :caption => 'Logo' } %></span>
+                <% end %>
+
+                <% @company.photo_companies.each do |photo| %>
+                  <%= link_to image_tag(@company.photo), @company.photo, :data => { :fancybox => 'images', :caption => 'Upload photo' } %>
+                <% end %>
+
+                <a href="https://source.unsplash.com/eWFdaPRFjwE/1500x1000" data-fancybox="images" data-caption="Mallorca, Llubí, Spain">
+                  <img src="https://source.unsplash.com/eWFdaPRFjwE/240x160" style="margin-bottom: 5px" />
+                </a>
+
+                <a href="https://source.unsplash.com/c1JxO-uAZd0/1500x1000" data-fancybox="images" data-caption="Danish summer">
+                  <img src="https://source.unsplash.com/c1JxO-uAZd0/240x160" style="margin-bottom: 5px"/>
+                </a>
+
+                <a href="https://source.unsplash.com/eXHeq48Z-Q4/1500x1000" data-fancybox="images" data-caption="Sunrise above a sandy beach">
+                  <img src="https://source.unsplash.com/eXHeq48Z-Q4/240x160" style="margin-bottom: 5px"/>
+                </a>
+
+                <a href="https://source.unsplash.com/RFgO9B_OR4g/1500x1000" data-fancybox="images" data-caption="Woman on a slope by the shore">
+                  <img src="https://source.unsplash.com/RFgO9B_OR4g/240x160" style="margin-bottom: 5px"/>
+                </a>
+
+                <a href="https://source.unsplash.com/7bwQXzbF6KE/1500x1000" data-fancybox="images" data-caption="Mountain hiking sunset">
+                  <img src="https://source.unsplash.com/7bwQXzbF6KE/240x160" style="margin-bottom: 5px"/>
+                </a>
+
+                <a href="https://source.unsplash.com/NhU0nUR7920/1500x1000" data-fancybox="images" data-caption="Sunset Picnic">
+                  <img src="https://source.unsplash.com/NhU0nUR7920/240x160" style="margin-bottom: 5px"/>
+                </a>
+
+                <a href="https://source.unsplash.com/B2LYYV9-y0s/1500x1000" data-fancybox="images" data-caption="On them Indiana Nights">
+                  <img src="https://source.unsplash.com/B2LYYV9-y0s/240x160" style="margin-bottom: 5px"/>
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
