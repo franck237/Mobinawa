@@ -87,6 +87,20 @@
                   <p><span>Closed.</span> Opens 10:30 Fri<a href="javascript:void(0)"><%= image_pack_tag "icon_arrow_down.png" %></a></p>
                   <button class="see-more" id="see-more-page">See more</button>
                 </div>
+                <!-- /.panel-heading -->
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <button type="button"><i class="fa fa-phone-alt"></i><h6>Call</h6></button>
+                    <button type="button"><i class="fa fa-comments"></i><h6>Chat</h6></button>
+                    <button type="button"><i class="fa fa-list"></i><h6>Services</h6></button>
+                  </div>
+
+                  <div class="panel-btns">
+                    <%= link_to "Reserve", company_product_path(@company), class: "btn-buy" %>
+                    <%= link_to "Buy Product", company_products_path(@company), class: "btn-book" %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
