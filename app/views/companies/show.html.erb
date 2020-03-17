@@ -61,6 +61,20 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="tabTwo-1">
+            <div class="overview">
+              <div class="kitchen-detail-name"><%= @company.name %></div>
+              <div class="see-more-hidden">
+                <div class="overview-details">
+                  <div class="kitchen-detail">
+                    <div class="restro">Restaurant <span>$$<span>$$</span></span></div>
+                    <div class="name-grill"><%= @company.sub_sector.name %></div>
+                    <div class="name-address">5 Rue de Thorigny, 75003</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
