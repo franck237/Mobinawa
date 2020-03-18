@@ -315,3 +315,13 @@
 .height-170 {
   height: calc(100vh - 170px) !important;
 }
+.carousel-control-prev ,.carousel-control-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-indicators li {
+  width: 13px !important;
+  height: 13px !important;
+  border-radius: 50% !important;
+}
