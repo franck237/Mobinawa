@@ -30,10 +30,10 @@ $(document).on("click", "#see-more-page", function() {
   $(".pro-filter-list ul").addClass("height-170");
 });
 
-$(document).on("click", ".back-arrow-black ", function() {
-  $(".see-more-hidden, #carouselExampleControls").removeClass("hide");
-  $(".detailed-pera, .back-arrow-black").addClass("hide");
-  $(".tabs").removeClass("mt-35");
-  $(".overview, .imglist").removeClass("height-76");
-  $(".pro-filter-list ul").removeClass("height-170");
+$(document).on("click", "#photos, #products, #location", function() {
+  $(".see-more-hidden, #carouselExampleControls").addClass("hide");
+  $(".detailed-pera, .back-arrow-black").removeClass("hide");
+  $(".tabs").addClass("mt-35");
+  $(".overview, .imglist").addClass("height-76");
+  $(".pro-filter-list ul").addClass("height-170");
 });
