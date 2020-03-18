@@ -1,3 +1,317 @@
 // Place all the styles related to the companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.carousel-item img {
+  height: 185px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+}
+.nav.nav-tabs {
+  padding: 0 10px;
+  border-bottom: 1px solid #5E6361;
+}
+.nav.nav-tabs .nav-item {
+  width: 25%;
+}
+.nav.nav-tabs .nav-link {
+  font-size: 16px !important;
+  line-height: 22px !important;
+  color: #000000 !important;
+  border: none !important;
+}
+.nav-tabs .nav-link.active {
+  border-bottom: 2px solid #5E6361 !important;
+}
+.overview {
+  padding: 10px 15px;
+  height: calc(100vh - 225px);
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.overview-details {
+  display: flex;
+}
+.overview-details .kitchen-detail {
+  width: calc(100% - 80px);
+}
+.kitchen-detail-name {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.0128571em;
+  color: #000000;
+}
+.kitchen-detail .restro {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000;
+  margin: 10px 0 5px 0;
+}
+.kitchen-detail .restro span {
+  display: inline-block;
+  margin: 0 0 0 15px;
+  font-weight: normal;
+}
+.kitchen-detail .restro span span {
+  display: inline-block;
+  margin: 0 0 0 0;
+  opacity: 0.4;
+}
+.kitchen-detail .ame-grill {
+  font-size: 14px;
+  line-height: 19px;
+  color: #000;
+}
+.kitchen-detail .name-address {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000;
+  margin: 5px 0;
+}
+.overview-details .name-image {
+  width: 75px;
+}
+.detailed-pera {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: justify;
+  color: #000000;
+  margin: 5px 0 0 0;
+}
+.overview-details .name-image img {
+  object-fit: contain;
+  width: 100%;
+  height: 85px;
+  margin: -15px 0 0 0;
+}
+.timing-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.timing-more p {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0;
+}
+.timing-more p span {
+  color: red;
+}
+.timing-more p a {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  margin: 0 0 0 20px;
+}
+.see-more {
+  background: linear-gradient(180deg, rgba(21, 69, 119, 0) 0%, #3B8CE0 0.01%, #154577 100%);
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  width: 85px;
+  font-size: 14px;
+  color: #fff;
+}
+.panel-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 50px 10px 0px 7px;
+}
+.panel-body button {
+  margin: 0 10px;
+  background: none;
+  border: none;
+}
+.panel-body button img {
+  object-fit: contain;
+  height: 65px;
+  width: auto;
+}
+.panel-body button svg {
+  width: 42px !important;
+  height: 47px;
+  color: #E26125;
+  text-align: center;
+  border: 1px solid #E26125;
+  line-height: 45px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 9px;
+}
+.panel-body button h6 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  color: #E26125;
+}
+.panel-btns {
+  margin: 30px -1% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.panel-btns a {
+  background: linear-gradient(180deg, #F5AA1C 0%, #E26125 100%);
+  height: 45px;
+  line-height: 41px;
+  color: #fff;
+  padding: 0;
+  font-weight: bold;
+  font-size: 14px;
+  width: 48%;
+  margin: 0 1%;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid #F37400;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.btn-book {
+  background: #fff !important;
+  color: #F37400 !important;
+}
+.imglist {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px 0;
+  height: calc(100vh - 225px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: 0;
+}
+.imglist a {
+  width: 50%;
+}
+.imglist a:nth-child(odd) {
+  padding: 0 2.5px 0 0;
+}
+.imglist a:nth-child(even) {
+  padding: 0 0 0 2.5px;
+}
+.imglist a img {
+  width: 100%;
+  /*height: 160px;*/
+}
+.product-list {
+  padding: 20px 5px 5px;
+}
+.product-list select {
+  display: block;
+  width: 100%;
+  background: #F9F9F9;
+  border: 1px solid #F37400;
+  /*box-shadow: inset 0px 1px 1px #626265;*/
+  border-radius: 3px;
+  height: 35px;
+  line-height: 33px;
+  padding: 0 10px;
+  font-size: 16px;
+  letter-spacing: -0.0241176em;
+  color: #000000;
+}
+.prodect-cate {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.0128571em;
+  color: #000000;
+  margin: 5px 0 10px;
+}
+.pro-filter-list ul {
+  height: calc(100vh - 320px);
+  overflow-y: auto;
+  margin: 0 !important;
+  padding: 0 10px;
+}
+.pro-filter-list ul li a {
+  display: flex;
+  border: 0.948454px solid #F2F2F2;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #F9F9F9;
+  box-shadow: 0px 3.79381px 3.79381px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 9.48454px 9.48454px 0px;
+  margin: 0 0 8px;
+}
+.prod-image {
+  width: 110px;
+  padding: 0 6px;
+}
+.prod-price-detail {
+  padding: 5px 6px;
+  width: 100%;
+  box-shadow: 0px 0 2.79381px rgba(0, 0, 0, 0.25);
+}
+.prod-name {
+  font-weight: bold;
+  font-size: 13.2783px;
+  line-height: 18px;
+  letter-spacing: 0.0128571em;
+  color: #000000;
+  height: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.prod-head {
+  font-size: 13.2783px;
+  line-height: 18px;
+  color: #000000;
+  margin: 3px 0;
+  height: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.prod-des {
+  font-size: 11.3814px;
+  line-height: 15px;
+  color: #000000;
+  margin: 0 0 10px;
+  height: 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.prod-price {
+  font-weight: bold;
+  font-size: 15.1753px;
+  line-height: 21px;
+  letter-spacing: 0.0128571em;
+  color: #E26125;
+}
+.back-arrow-white , .back-arrow-black {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  text-align: center;
+}
+.back-arrow-white a, .back-arrow-black a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  width: 40px;
+  text-align: center;
+}
+.mt-35 {
+  margin-top: 35px;
+}
+.height-76 {
+  height: calc(100vh - 76px);
+}
+.height-170 {
+  height: calc(100vh - 170px) !important;
+}
