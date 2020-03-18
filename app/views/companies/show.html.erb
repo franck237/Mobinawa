@@ -168,20 +168,24 @@
                     <% @products.each do |product| %>
                       <li>
                         <% if product.upload_image.attached? %>
-                          <div class="prod-image">
-                            <%= link_to image_tag(product.upload_image.variant(resize: "300x300"), class: "rounded mx-auto d-block"), product_path(product.id) %>
-                          </div>
+                          <%= link_to product_path(product.id) do %>
+                            <div class="prod-image">
+                              <%= image_tag(product.upload_image.variant(resize: "300x300"), class: "rounded mx-auto d-block") %>
+                            </div>
+                          <% end %>
                         <% else %>
-                          <div class="prod-image">
-                            <%= link_to image_tag(product.image_product, class: "rounded mx-auto d-block"), product_path(product.id) %>
-                          </div>
+                          <%= link_to product_path(product.id) do %>
+                            <div class="prod-image">
+                              <%= image_tag(product.image_product, class: "rounded mx-auto d-block") %>
+                            </div>
+                            <div class="prod-price-detail">
+                              <div class="prod-name"><%= product.title %></div>
+                              <div class="prod-head">Decoration / Juju Hat</div>
+                              <div class="prod-des"><%= product.description %></div>
+                              <div class="prod-price"><%= number_to_currency(product.price, unit: "FCFA", separator: ".", delimiter: "", format: "%n %u") %></div>
+                            </div>
+                          <% end %>
                         <% end %>
-                        <div class="prod-price-detail">
-                          <div class="prod-name"><%= product.title %></div>
-                          <div class="prod-head">Decoration / Juju Hat</div>
-                          <div class="prod-des"><%= product.description %></div>
-                          <div class="prod-price"><%= number_to_currency(product.price, unit: "FCFA", separator: ".", delimiter: "", format: "%n %u") %></div>
-                        </div>
                       </li>
                     <% end %>
                   </ul>
