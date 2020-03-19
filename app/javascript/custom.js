@@ -36,8 +36,12 @@ $(document).on("click", "#company-back-icon", function() {
   $("#overview").click();
 });
 
-$(document).on("click", "#company-back-icon, #overview", function() {
+$( document).on("click", "#company-back-icon, #overview", function() {
   companyHomePage();
+});
+
+$(document).on("click", ".btn-book", function() {
+  $("#products").click();
 });
 
 function companyHomePage(){
