@@ -44,10 +44,21 @@ $(document).on("click", ".btn-book", function() {
   $("#products").click();
 });
 
+$(document).on("click", "#see-more-page", function() {
+  $(".see-more-hidden, #carouselExampleControls").addClass("hide");
+  $(".tabs").addClass("mt-35");
+  $(".overview, .imglist").addClass("height-76");
+  $(".pro-filter-list ul").addClass("height-170");
+
+  $(".back-arrow-black").removeClass("hide");
+
+  $(".detailed-pera").removeClass("hide");
+});
+
 function companyHomePage(){
   $(".see-more-hidden, #carouselExampleControls").removeClass("hide");
   $(".tabs").removeClass("mt-35");
   $(".overview, .imglist").removeClass("height-76");
   $(".pro-filter-list ul").removeClass("height-170");
-  $(".back-arrow-black").addClass("hide");
+  $(".back-arrow-black, .detailed-pera").addClass("hide");
 }
