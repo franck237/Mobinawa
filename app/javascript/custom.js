@@ -22,43 +22,41 @@ $(document).on("click", ".back-menu", function() {
   $(".full-height").css({'justify-content':'space-between'});
 });
 
-$(document).on("click", "#photos, #products, #location", function() {
-  $(".see-more-hidden, #carouselExampleControls").addClass("hide");
-  $(".tabs").addClass("mt-35");
-  $(".overview, .imglist").addClass("height-76");
-  $(".pro-filter-list ul").addClass("height-170");
-
-  $(".back-arrow-black").removeClass("hide");
-});
-
-$(document).on("click", "#company-back-icon", function() {
-  companyHomePage();
-  $("#overview").click();
-});
-
-$( document).on("click", "#company-back-icon, #overview", function() {
-  companyHomePage();
-});
-
 $(document).on("click", ".btn-book", function() {
   $("#products").click();
 });
 
+$(document).on("click", "#photos, #products, #location", function() {
+  hideCompanyHomePage();
+});
+
 $(document).on("click", "#see-more-page", function() {
-  $(".see-more-hidden, #carouselExampleControls").addClass("hide");
-  $(".tabs").addClass("mt-35");
-  $(".overview, .imglist").addClass("height-76");
-  $(".pro-filter-list ul").addClass("height-170");
-
-  $(".back-arrow-black").removeClass("hide");
-
+  hideCompanyHomePage();
   $(".detailed-pera").removeClass("hide");
 });
 
-function companyHomePage(){
+$(document).on("click", "#company-back-icon", function() {
+  showCompanyHomePage();
+  $("#overview").click();
+});
+
+$( document).on("click", "#company-back-icon, #overview", function() {
+  showCompanyHomePage();
+});
+
+function showCompanyHomePage(){
   $(".see-more-hidden, #carouselExampleControls").removeClass("hide");
   $(".tabs").removeClass("mt-35");
   $(".overview, .imglist").removeClass("height-76");
   $(".pro-filter-list ul").removeClass("height-170");
   $(".back-arrow-black, .detailed-pera").addClass("hide");
+}
+
+function hideCompanyHomePage(){
+  $(".see-more-hidden, #carouselExampleControls").addClass("hide");
+  $(".tabs").addClass("mt-35");
+  $(".overview, .imglist").addClass("height-76");
+  $(".pro-filter-list ul").addClass("height-170");
+
+  $(".back-arrow-black").removeClass("hide");
 }
