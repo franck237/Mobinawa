@@ -4,9 +4,8 @@
     <div class="st-pusher">
       <div class="st-content">
         <!-- Section of the carousel -->
-        <div class="back-arrow-black hide"><a href="javascript:void(0)"><%= image_pack_tag 'icon_arrow_left_black.png' %></a></div>
+        <div class="back-arrow-black hide" id="company-back-icon"><a href="javascript:void(0)"><%= image_pack_tag 'icon_arrow_left_black.png' %></a></div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="back-arrow-white"><a href="javascript:void(0)"><%= image_pack_tag 'icon_arrow_left_black.png' %></a></div>
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -52,16 +51,16 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item" role="presentation">
-              <a href="#tabTwo-1" aria-controls="overview" role="tab" data-toggle="tab" class="nav-link active text-center text-normal strong-600">Overview</a>
+              <a href="#tabTwo-1" id="overview" aria-controls="overview" role="tab" data-toggle="tab" class="nav-link active text-center text-normal strong-600 overview-active-btn">Overview</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a href="#tabTwo-2" aria-controls="photo" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Photos</a>
+              <a href="#tabTwo-2" id="photos" aria-controls="photo" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Photos</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a href="#tabTwo-3" aria-controls="products" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Products</a>
+              <a href="#tabTwo-3" id="products" aria-controls="products" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Products</a>
             </li>
             <li class="nav-item" role="presentation">
-              <a href="#tabTwo-4" aria-controls="pointofsale" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Location</a>
+              <a href="#tabTwo-4" id="location" aria-controls="pointofsale" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Location</a>
             </li>
           </ul>
         </div>

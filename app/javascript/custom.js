@@ -44,5 +44,14 @@ $(document).on("click", "#overview", function() {
   $(".tabs").removeClass("mt-35");
   $(".overview, .imglist").removeClass("height-76");
 
-  $(".detailed-pera").addClass("hide");
+  $(".detailed-pera, .back-arrow-black").addClass("hide");
+});
+
+$(document).on("click", "#company-back-icon", function() {
+  $(".see-more-hidden, #carouselExampleControls").removeClass("hide");
+  $(".tabs").removeClass("mt-35");
+  $(".overview, .imglist").removeClass("height-76");
+
+  $(".detailed-pera, .back-arrow-black").addClass("hide");
+  $("#overview").click();
 });
