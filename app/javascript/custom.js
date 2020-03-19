@@ -22,36 +22,28 @@ $(document).on("click", ".back-menu", function() {
   $(".full-height").css({'justify-content':'space-between'});
 });
 
-$(document).on("click", "#see-more-page", function() {
-  $(".see-more-hidden, #carouselExampleControls").addClass("hide");
-  $(".detailed-pera, .back-arrow-black").removeClass("hide");
-  $(".tabs").addClass("mt-35");
-  $(".overview, .imglist").addClass("height-76");
-  $(".pro-filter-list ul").addClass("height-170");
-});
-
 $(document).on("click", "#photos, #products, #location", function() {
-  $(".detailed-pera, .back-arrow-black").removeClass("hide");
-
   $(".see-more-hidden, #carouselExampleControls").addClass("hide");
   $(".tabs").addClass("mt-35");
   $(".overview, .imglist").addClass("height-76");
   $(".pro-filter-list ul").addClass("height-170");
-});
 
-$(document).on("click", "#overview", function() {
-  $(".see-more-hidden, #carouselExampleControls").removeClass("hide");
-  $(".tabs").removeClass("mt-35");
-  $(".overview, .imglist").removeClass("height-76");
-
-  $(".detailed-pera, .back-arrow-black").addClass("hide");
+  $(".back-arrow-black").removeClass("hide");
 });
 
 $(document).on("click", "#company-back-icon", function() {
+  companyHomePage();
+  $("#overview").click();
+});
+
+$(document).on("click", "#company-back-icon, #overview", function() {
+  companyHomePage();
+});
+
+function companyHomePage(){
   $(".see-more-hidden, #carouselExampleControls").removeClass("hide");
   $(".tabs").removeClass("mt-35");
   $(".overview, .imglist").removeClass("height-76");
-
-  $(".detailed-pera, .back-arrow-black").addClass("hide");
-  $("#overview").click();
-});
+  $(".pro-filter-list ul").removeClass("height-170");
+  $(".back-arrow-black").addClass("hide");
+}
