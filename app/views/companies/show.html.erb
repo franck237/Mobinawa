@@ -1,299 +1,209 @@
 <!-- MAIN WRAPPER -->
 <div class="body-wrap">
-    <div id="st-container" class="st-container">
-        <div class="st-pusher">
-            <div class="st-content">
-<!-- Section of the carousel -->
-							<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-							  <div class="carousel-inner">
-							    <div class="carousel-item active">
-							    	<%if @company.upload_logo.attached?%>
-							      	<%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
-							      <%else%>
-							      	<%= image_tag(@company.logo, class: 'd-block w-100') %>
-							      <%end%>
-							    </div>
-							    <div class="carousel-item">
-							      <%if @company.upload_logo.attached?%>
-							      	<%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
-							      <%else%>
-							      	<%= image_tag(@company.logo, class: 'd-block w-100') %>
-							      <%end%>
-							    </div>
-							    <div class="carousel-item">
-							      <%if @company.upload_logo.attached?%>
-							      	<%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
-							      <%else%>
-							      	<%= image_tag(@company.logo, class: 'd-block w-100') %>
-							      <%end%>
-							    </div>
-							  </div>
-							  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-							    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							    <span class="sr-only">Previous</span>
-							  </a>
-							  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-							    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-							    <span class="sr-only">Next</span>
-							  </a>
-							</div>
-							
-						
-<!-- Tabs Navbar Boomerang -->
-						  <div class="tabs tabs--style-2" role="tabpanel">
-						    <!-- Nav tabs -->
-						    <ul class="nav nav-tabs" role="tablist">
-						        <li class="nav-item" role="presentation">
-						          <a href="#tabTwo-1" aria-controls="overview" role="tab" data-toggle="tab" class="nav-link active text-center text-normal strong-600">Overview</a>
-        						</li>
-       							<li class="nav-item" role="presentation">
-            					<a href="#tabTwo-2" aria-controls="photo" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Photos</a>
-        						</li>
-       							<li class="nav-item" role="presentation">
-            					<a href="#tabTwo-3" aria-controls="products" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Products</a>
-        						</li>
-    								<li class="nav-item" role="presentation">
-            					<a href="#tabTwo-4" aria-controls="pointofsale" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Location</a>
-        						</li>
-    						</ul>
+  <div id="st-container" class="st-container">
+    <div class="st-pusher">
+      <div class="st-content">
+        <!-- Section of the carousel -->
+        <div class="back-arrow-black hide" id="company-back-icon"><a href="javascript:void(0)"><%= image_pack_tag 'icon_arrow_left_black.png' %></a></div>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%if @company.upload_logo.attached?%>
+                  <%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
+                <%else%>
+                  <%= image_tag(@company.logo, class: 'd-block w-100') %>
+                <%end%>
+              </div>
+              <div class="carousel-item">
+                <%if @company.upload_logo.attached?%>
+                  <%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
+                <%else%>
+                  <%= image_tag(@company.logo, class: 'd-block w-100') %>
+                <%end%>
+              </div>
+              <div class="carousel-item">
+                <%if @company.upload_logo.attached?%>
+                  <%= image_tag(@company.upload_logo, class: 'd-block w-100') %>
+                <%else%>
+                  <%= image_tag(@company.logo, class: 'd-block w-100') %>
+                <%end%>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
 
-   
-			<!-- Tab panes -->
+        <!-- Tabs Navbar Boomerang -->
+        <div class="tabs tabs--style-2" role="tabpanel">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a href="#tabTwo-1" id="overview" aria-controls="overview" role="tab" data-toggle="tab" class="nav-link active text-center text-normal strong-600 overview-active-btn">Overview</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a href="#tabTwo-2" id="photos" aria-controls="photo" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Photos</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a href="#tabTwo-3" id="products" aria-controls="products" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Products</a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a href="#tabTwo-4" id="location" aria-controls="pointofsale" role="tab" data-toggle="tab" class="nav-link text-center text-normal strong-600">Location</a>
+            </li>
+          </ul>
+        </div>
 
-						    <div class="tab-content">
-						      <div role="tabpanel" class="tab-pane active" id="tabTwo-1">
-						        <div class="tab-body" style="padding: 0px 15px">
-						        		<!-- Section of the company -->
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="tabTwo-1">
+            <div class="overview">
+              <div class="kitchen-detail-name"><%= @company.name %></div>
+              <div class="see-more-hidden">
+                <div class="overview-details">
+                  <div class="kitchen-detail">
+                    <div class="restro">Restaurant <span>$$<span>$$</span></span></div>
+                    <div class="name-grill"><%= @company.sub_sector.name %></div>
+                    <div class="name-address">5 Rue de Thorigny, 75003</div>
+                  </div>
+                  <div class="name-image">
+                    <%if @company.upload_logo.attached?%>
+                      <span>
+                        <%= image_tag(@company.upload_logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %>
+                      </span>
+                    <%else%>
+                      <span>
+                        <%= image_tag(@company.logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %>
+                      </span>
+                    <%end%>
+                  </div>
+                </div>
+                <div class="timing-more">
+                  <p><span>Closed.</span> Opens 10:30 Fri<a href="javascript:void(0)"><%= image_pack_tag "icon_arrow_down.png" %></a></p>
+                  <button class="see-more" id="see-more-page">See more</button>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <button type="button"><i class="fa fa-phone-alt"></i><h6>Call</h6></button>
+                    <button type="button"><i class="fa fa-comments"></i><h6>Chat</h6></button>
+                    <button type="button"><i class="fa fa-list"></i><h6>Services</h6></button>
+                  </div>
 
-												<div class="container-fluid" style="margin-top: 10px">
-												  <div class="row no-gutters">
+                  <div class="panel-btns">
+                    <%= link_to "Reserve", company_product_path(@company), class: "btn-buy" %>
+                    <a href="#" aria-controls="products" role="tab" data-toggle="tab" class="btn-book">Buy Product</a>
+                  </div>
+                </div>
+              </div>
+              <div class="detailed-pera hide"><%= @company.description %></div>
+            </div>
+          </div>
 
-												  	<div class="col-auto mr-auto">
-												 
-												        <h5  style="margin-bottom: 0; font-weight: bold; color: orange"><%= @company.name %></h5>
-												        <h6 class="card-text" style="margin-bottom: 0"><%= @company.sector.name %></h6>
-												        <i class="card-text font-weight-normal"><%= @company.sub_sector.name %></i>
-												     
-												    </div>
-												    <div class="col-auto">
-												      
-												      	<%if @company.upload_logo.attached?%>
-																	  <span><%= image_tag(@company.upload_logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %></span>
-																<%else%>
-												      			<span><%= image_tag(@company.logo, class: 'rounded-circle border border-primary border-2', width: 80, height: 70) %></span>
-												      	<%end%>
-												    	  
-					    							</div>
-					    							 </div>
-												  </div>
+          <div role="tabpanel" class="tab-pane" id="tabTwo-2">
+            <div class="tab-body">
+              <p class="imglist" style="max-width: 1000px; text-align: center">
+                <% if @company.upload_logo.attached? %>
+                  <%= link_to image_tag(@company.upload_logo), @company.upload_logo, :data => { :fancybox => 'images', :caption => 'Upload Logo' } %>
+                <% else %>
+                  <%= link_to image_tag(@company.logo), @company.logo, :data => { :fancybox => 'images', :caption => 'Logo' } %></span>
+                <% end %>
 
-                        <!-- /.panel-heading -->
-                        <div class="panel panel-default">
-	                        <div class="panel-body text-center">
-	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-phone-alt"></i>
-	                            	<h6 style="margin-top: 8px">Call</h6>
-	                            </button>
-	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-comments"></i>
-	                            	<h6 style="margin-top: 8px">Chat</h6>
-	                            </button>
-	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-list"></i>
-	                            	<h6 style="margin-top: 8px">Services</h6>
-	                            </button>
-	                            <button type="button" class="btn btn-outline-primary btn-circle" style="margin: 20px 40px; width: 30px; height: 30px"><i class="fa fa-directions"></i>
-	                            	<h6 style="margin-top: 8px">GPS</h6>
-	                            </button>
-	                        </div>
-	                        <!-- A revoir -->
-	                        <div class="panel-body text-center" style="margin-top: 30px">
-	                        	<%= link_to "Buy Products", company_products_path(@company), class: "btn btn-primary" %>
-	                        	<%= link_to "Book / Reserve", company_product_path(@company), class: "btn btn-primary" %>
-	                        </div>
-	                      </div>
-	                      
-	                      
-	                      <hr>
+                <% @company.photo_companies.each do |photo| %>
+                  <%= link_to image_tag(@company.photo), @company.photo, :data => { :fancybox => 'images', :caption => 'Upload photo' } %>
+                <% end %>
 
+                <a href="https://source.unsplash.com/eWFdaPRFjwE/1500x1000" data-fancybox="images" data-caption="Mallorca, Llubí, Spain">
+                  <img src="https://source.unsplash.com/eWFdaPRFjwE/240x160" style="margin-bottom: 5px" />
+                </a>
 
-                    	<div>
-	                    	<p style="margin-bottom: 0rem; text-decoration: underline; text-decoration-color: orange; font-weight: bold">
-	                   		Description :
-	                			</p>
-	                    	<p style="margin-bottom: 2rem">
-	                   			<%= @company.description %>
-	                			</p>
-	                			<p style="margin-bottom: 0rem; text-decoration: underline; text-decoration-color: orange; font-weight: bold">
-	                   		Information complémentaires :
-	                			</p>
-	                			<p style="margin-bottom: 0rem">
-	                   			<i class="fas fa-envelope"></i> : <%= @company.email %>
-	                			</p>
-	                			<p>
-	                   			<i class="fas fa-phone-alt"></i> : (<%= @company.country.code %>) <%= @company.number %>
-	                			</p>
-                			</div>
-            				</div>
-        					</div>
-        					<div role="tabpanel" class="tab-pane" id="tabTwo-2">
-            				<div class="tab-body" style="padding: 10px 15px;">
-                				<p class="imglist" style="max-width: 1000px; text-align: center">
-														<%if @company.upload_logo.attached?%>
-  													 		<%= link_to image_tag(@company.upload_logo, width: 240, height: 160, style:"margin-bottom:5px"), @company.upload_logo, :data => { :fancybox => 'images', :caption => 'Upload Logo' } %>
-														<%else%>
-								      					<%= link_to image_tag(@company.logo, width: 240, height: 160, style:"margin-bottom:5px"), @company.logo, :data => { :fancybox => 'images', :caption => 'Logo' } %></span>
-								      			<%end%>
-												
-														<% @company.photo_companies.each do |photo| %>
-														    <%= link_to image_tag(@company.photo, width: 240, height: 160, style:"margin-bottom:5px"), @company.photo, :data => { :fancybox => 'images', :caption => 'Upload photo' } %>
-														<%end%>
-														    	
-														  <a href="https://source.unsplash.com/eWFdaPRFjwE/1500x1000" data-fancybox="images" data-caption="Mallorca, Llubí, Spain">
-														    <img src="https://source.unsplash.com/eWFdaPRFjwE/240x160" style="margin-bottom: 5px" />
-														  </a>
+                <a href="https://source.unsplash.com/c1JxO-uAZd0/1500x1000" data-fancybox="images" data-caption="Danish summer">
+                  <img src="https://source.unsplash.com/c1JxO-uAZd0/240x160" style="margin-bottom: 5px"/>
+                </a>
 
-														  <a href="https://source.unsplash.com/c1JxO-uAZd0/1500x1000" data-fancybox="images" data-caption="Danish summer">
-														    <img src="https://source.unsplash.com/c1JxO-uAZd0/240x160" style="margin-bottom: 5px"/>
-														  </a>
+                <a href="https://source.unsplash.com/eXHeq48Z-Q4/1500x1000" data-fancybox="images" data-caption="Sunrise above a sandy beach">
+                  <img src="https://source.unsplash.com/eXHeq48Z-Q4/240x160" style="margin-bottom: 5px"/>
+                </a>
 
-														  <a href="https://source.unsplash.com/eXHeq48Z-Q4/1500x1000" data-fancybox="images" data-caption="Sunrise above a sandy beach">
-														    <img src="https://source.unsplash.com/eXHeq48Z-Q4/240x160" style="margin-bottom: 5px"/>
-														  </a>
+                <a href="https://source.unsplash.com/RFgO9B_OR4g/1500x1000" data-fancybox="images" data-caption="Woman on a slope by the shore">
+                  <img src="https://source.unsplash.com/RFgO9B_OR4g/240x160" style="margin-bottom: 5px"/>
+                </a>
 
-														  <a href="https://source.unsplash.com/RFgO9B_OR4g/1500x1000" data-fancybox="images" data-caption="Woman on a slope by the shore">
-														    <img src="https://source.unsplash.com/RFgO9B_OR4g/240x160" style="margin-bottom: 5px"/>
-														  </a>
+                <a href="https://source.unsplash.com/7bwQXzbF6KE/1500x1000" data-fancybox="images" data-caption="Mountain hiking sunset">
+                  <img src="https://source.unsplash.com/7bwQXzbF6KE/240x160" style="margin-bottom: 5px"/>
+                </a>
 
-														  <a href="https://source.unsplash.com/7bwQXzbF6KE/1500x1000" data-fancybox="images" data-caption="Mountain hiking sunset">
-														    <img src="https://source.unsplash.com/7bwQXzbF6KE/240x160" style="margin-bottom: 5px"/>
-														  </a>
+                <a href="https://source.unsplash.com/NhU0nUR7920/1500x1000" data-fancybox="images" data-caption="Sunset Picnic">
+                  <img src="https://source.unsplash.com/NhU0nUR7920/240x160" style="margin-bottom: 5px"/>
+                </a>
 
-														  <a href="https://source.unsplash.com/NhU0nUR7920/1500x1000" data-fancybox="images" data-caption="Sunset Picnic">
-														    <img src="https://source.unsplash.com/NhU0nUR7920/240x160" style="margin-bottom: 5px"/>
-														  </a>
+                <a href="https://source.unsplash.com/B2LYYV9-y0s/1500x1000" data-fancybox="images" data-caption="On them Indiana Nights">
+                  <img src="https://source.unsplash.com/B2LYYV9-y0s/240x160" style="margin-bottom: 5px"/>
+                </a>
+              </p>
+            </div>
+          </div>
 
-														  <a href="https://source.unsplash.com/B2LYYV9-y0s/1500x1000" data-fancybox="images" data-caption="On them Indiana Nights">
-														    <img src="https://source.unsplash.com/B2LYYV9-y0s/240x160" style="margin-bottom: 5px"/>
-														  </a>
-														</p>             			
-            				</div>
-        					</div>
-        					<div role="tabpanel" class="tab-pane" id="tabTwo-3">
-            				<div class="tab-body" style="padding: 0px 15px">
+          <div role="tabpanel" class="tab-pane" id="tabTwo-3">
+            <div class="st-content-inner">
+              <div class="product-list">
+                <div class="pro-selector">
+                  <select>
+                    <option>most popular</option>
+                    <option>increasing price</option>
+                    <option>decreasing price</option>
+                    <option>categories -</option>
+                    <option>A to Z</option>
+                  </select>
+                </div>
 
-							                			        <!-- List of the Products of a Company -->
-							                <div class="body-wrap shop-default shop-minimalist">
-													      <div id="st-container" class="st-container">
-													          <div class="st-pusher">
-													              <div class="st-content">
-													                  <div class="st-content-inner">
-																								<section class="slice" style="padding: 0.5rem 0rem">
-																								    <div class="container">
-																								        <div class="section-title section-title--style-1 text-center">
-																								            <h3 class="section-title-inner heading-6 strong-600 text-uppercase ls-2">
-																								            	<a name="products"></a>
-																								                <span>List of Products</span>
-																								            </h3>
-																								            <div class="fluid-paragraph fluid-paragraph-sm c-gray-light strong-300 font-custom-4 text-center">
-																								            <%= @products.length %> products
-																								        		</div>
-																								            <span class="section-title-delimiter clearfix d-none"></span>
-																								        </div>
+                <div class="pro-filter-list">
+                  <div class="prodect-cate">The most popular</div>
+                  <ul>
+                    <% @products.each do |product| %>
+                      <li>
+                        <% if product.upload_image.attached? %>
+                          <%= link_to product_path(product.id) do %>
+                            <div class="prod-image">
+                              <%= image_tag(product.upload_image.variant(resize: "300x300"), class: "rounded mx-auto d-block") %>
+                            </div>
+                          <% end %>
+                        <% else %>
+                          <%= link_to product_path(product.id) do %>
+                            <div class="prod-image">
+                              <%= image_tag(product.image_product, class: "rounded mx-auto d-block") %>
+                            </div>
+                            <div class="prod-price-detail">
+                              <div class="prod-name"><%= product.title %></div>
+                              <div class="prod-head">Decoration / Juju Hat</div>
+                              <div class="prod-des"><%= product.description %></div>
+                              <div class="prod-price"><%= number_to_currency(product.price, unit: "FCFA", separator: ".", delimiter: "", format: "%n %u") %></div>
+                            </div>
+                          <% end %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
-																								        <div class="row-wrapper">
-																								            <div class="row cols-xs-space cols-sm-space cols-md-space">
-																								            	<% @products.each.with_index(1) do |product| %>
-																								                <div class="col-lg-4 col-md-6">
-																								                    <div class="block product bg-transparent no-radius">
-																								                        <div class="product-image">
-																								                            <div class="view view-first">
-																								                            			<%if product.upload_image.attached?%>
-																																						      	<%= link_to image_tag(product.upload_image.variant(resize: "300x300"), class: "rounded mx-auto d-block"), product_path(product.id) %>
-																																						      <%else%>
-																																						      	<%= link_to image_tag(product.image_product, width: 300, class: "rounded mx-auto d-block"), product_path(product.id) %>
-																																						      <%end%>
-																								                            </div>
-
-																								                            <div class="product-actions--a product-actions--2" data-animation-in="slideInRight"  data-animation-out="slideOutRight">
-																								                                <button type="button" class="btn-product-action">
-																								                                    <i class="ion-bag"></i>
-																								                                </button>
-
-																								                                <button type="button" class="btn-product-action">
-																								                                    <i class="ion-ios-heart-outline"></i>
-																								                                </button>
-																								                            </div>
-																								                        </div>
-
-																								                        <div class="block-body px-0 text-center">
-																								                            <h3 class="heading heading-6 strong-500 text-capitalize mb-0">"<%= product.title %>"</h3>
-																								                         
-																								                            <div class="price-wrapper">
-																								                                <span class="price-value"><%= number_to_currency(product.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %><span class="price heading-6 c-gray-light strong-400"></span></span>
-																								                            </div>
-
-																								                            <div class="price-wrapper">
-																								                                <span class="price-value"><%= product.description %><span class="price heading-6 c-gray-light strong-400"></span></span>
-																								                            </div>
-																								                        </div>
-																								                    </div>
-																								                </div>
-																								                <br/>
-																																<% end %>
-																								            </div>
-																								        </div>
-																								    </div>
-																								</section>
-
-																								<section class="slice-sm sct-color-1 border-top">
-																								    <div class="container">
-																								        <div class="row cols-xs-space cols-sm-space cols-md-space">
-																								            <div class="col-lg-4 b-lg-right">
-																								                <div class="px-3 py-3 text-lg-center">
-																								                    <h3 class="heading heading-6 strong-500">Free shipping in 48/72H</h3>
-																								                    <p class="c-gray-light line-height-1_6">
-																								                        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-																								                    </p>
-																								                </div>
-																								            </div>
-
-																								            <div class="col-lg-4 b-lg-right">
-																								                <div class="px-3 py-3 text-lg-center">
-																								                    <h3 class="heading heading-6 strong-500">Free returns</h3>
-																								                    <p class="c-gray-light line-height-1_6">
-																								                        Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-																								                    </p>
-																								                </div>
-																								            </div>
-
-																								            <div class="col-lg-4">
-																								                <div class="px-3 py-3 text-lg-center">
-																								                    <h3 class="heading heading-6 strong-500">Secure payment</h3>
-																								                    <ul class="inline-links">                         
-																								                        <li>
-																								                            <%= image_pack_tag 'icons/cards/stripe.png', width: 180, class: "img-grayscale" %>
-																								                        </li>
-																								                    </ul>
-																								                </div>
-																								            </div>
-																								        </div>
-																								    </div>
-																								</section>
-																						</div><!-- END: st-content-inner -->
-													            </div><!-- END: st-content -->
-													        </div><!-- END: st-pusher -->
-													    </div><!-- END: st-container -->
-													</div><!-- END: body-wrap -->
-							            </div>
-							        </div>
-        					<div role="tabpanel" class="tab-pane" id="tabTwo-4">
-            				<div class="tab-body" style="padding: 0px 15px">
-                			<p>
-                    		Mettre API Google
-               				</p>
-                			<p>
-                   			<%= @company.name %>
-                			</p>
-            				</div>
-        					</div>
-    						</div>
-							</div>
-
+          <div role="tabpanel" class="tab-pane" id="tabTwo-4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
