@@ -8,6 +8,7 @@ $(document).on("click", ".choose-categories", function() {
   $(".total-menu ul").addClass("overflow-menu");
   $(".multi-menu").addClass("multi-menu-scroll");
   $(".full-height").css({'justify-content':'flex-start'});
+  changeFirstPageParams(false);
 });
 
 $(document).on("click", ".back-menu", function() {
@@ -20,6 +21,7 @@ $(document).on("click", ".back-menu", function() {
   $(".total-menu ul").removeClass("overflow-menu");
   $(".multi-menu").removeClass("multi-menu-scroll");
   $(".full-height").css({'justify-content':'space-between'});
+  changeFirstPageParams(true);
 });
 
 $(document).on("click", ".btn-book", function() {
@@ -59,4 +61,12 @@ function hideCompanyHomePage(){
   $(".pro-filter-list ul").addClass("height-170");
 
   $(".back-arrow-black").removeClass("hide");
+}
+
+function changeFirstPageParams(bool){
+  var elements = $(".change-params")
+  elements.each(function(index){
+    ary = elements[index].href.split("first_page=")
+    elements[index].href = ary[0] + "first_page=" + bool
+  })
 }

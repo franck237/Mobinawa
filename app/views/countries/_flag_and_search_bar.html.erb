@@ -40,7 +40,7 @@
                     <% @countries.each.with_index(1) do |c, index| %>
                       <div class="dropdown-item">
                         <p>
-                          <%= link_to country_path(c.id), remote: true, class: "change-params" do %>
+                          <%= link_to country_path(c.id, first_page: true), remote: true, class: "change-params" do %>
                             <%= image_pack_tag(c.flag, width: 35) %>
                             <%= c.name %>
                           <% end %>
